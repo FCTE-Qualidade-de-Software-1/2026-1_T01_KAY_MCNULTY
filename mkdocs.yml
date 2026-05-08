@@ -1,0 +1,46 @@
+site_name: Kay McNulty - Achei UnB
+
+repo_url: https://github.com/FCTE-Qualidade-de-Software-1/2026-1_T01_KAY-McNULTY
+
+theme:
+  name: material
+  features:
+    - navigation.tabs # Abas na parte superior
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy # Botão de copiar nos blocos de código
+  palette:
+    # Modo claro
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Mudar para modo escuro
+    # Modo escuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Mudar para modo claro
+
+# Extensões úteis para documentação técnica de código e matemática
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+
+nav:
+  - Home: index.md
+
+extra_css:
+  - stylesheets/extra.css

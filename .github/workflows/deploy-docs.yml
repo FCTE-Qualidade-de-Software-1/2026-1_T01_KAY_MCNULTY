@@ -1,0 +1,31 @@
+name: Deploy MkDocs
+
+on:
+  push:
+    branches:
+      - main # Mude para 'master' se for o caso do seu repositório
+  workflow_dispatch: # Permite rodar a action manualmente pelo painel do GitHub
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Garante que o histórico completo seja baixado para datas de modificação
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+          cache: 'pip'
+
+      - name: Instalar dependências
+        run: pip install -r requirements.txt
+
+      - name: Deploy para GitHub Pages
+        run: mkdocs gh-deploy --force
