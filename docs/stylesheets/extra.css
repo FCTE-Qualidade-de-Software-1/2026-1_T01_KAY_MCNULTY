@@ -94,3 +94,50 @@
 .md-typeset .arithmatex::after {
     display: none !important; /* Remove a barra de janela do LaTeX */
 }
+
+/* Melhorias de Contraste para Modo Escuro */
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+    background-color: #3c48b5;
+    color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) td {
+    color: #e0e0e0;
+    border-bottom: 1px solid #444;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) tr:nth-child(odd) {
+    background-color: #1e1e1e;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) tr:hover {
+    background-color: #383838;
+}
+
+/* Estilo específico para tabela de membros */
+.md-typeset table:not([class]) img {
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border: 2px solid #4051b5;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) img {
+    border-color: #3c48b5;
+}
+
+/* Aumentar largura das colunas da tabela */
+.md-typeset table:not([class]) {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
+    word-wrap: break-word;
+}

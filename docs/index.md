@@ -1,4 +1,4 @@
-# Sobre o Projeto
+# Kay McNulty - Achei UnB
 
 ## Quem Foi Kay McNulty?
 
@@ -46,10 +46,27 @@ O AcheiUnB atua como uma ferramenta que busca incentivar o comportamento ético 
 
 ---
 
-## Histórico de Versões
+## Equipe de Qualidade de Software - KAY McNULTY
+
+A equipe de qualidade de software é composta por estudantes dedicados da Faculdade de Ciências e Tecnologias em Engenharia da Universidade de Brasília, trabalhando conjuntamente no projeto de avaliação de qualidade do **AcheiUnB**.
+
+### Membros da Equipe
+
+| Foto | Membro | GitHub |
+| :--: | :------: | :------: |
+| ![Júlia](https://github.com/juliamassuda.png?size=64) | **Júlia Massuda** | [@juliamassuda](https://github.com/juliamassuda) |
+| ![Luiz](https://github.com/luizfaria1989.png?size=64) | **Luiz Faria** | [@luizfaria1989](https://github.com/luizfaria1989) |
+| ![Tiago](https://via.placeholder.com/64?text=Tiago) | **Tiago** | TBD |
+| ![Samuel](https://via.placeholder.com/64?text=Samuel) | **Samuel** | TBD |
+| ![+1](https://via.placeholder.com/64?text=+1) | **+1** | TBD |
+| ![Marjorie](https://via.placeholder.com/64?text=Marjorie) | **Marjorie** | TBD |
+
+---
 
 | Versão | Descrição | Data | Responsável |
 | ------ | --------- | ---- | ----------- |
 | `0.1` | Criação da página e início da documentação. | 08/05/2026 | [Luiz](https://github.com/luizfaria1989) |
 | `0.2` | Adiciona objetivos de desenvolvimento sustentável e informações do AcheiUnB. | 12/05/2026 | [Luiz](https://github.com/luizfaria1989) |
+| `0.3` | Integração da seção de Equipe na página Início e reorganização das abas de navegação. | 12/05/2026 | [Júlia](https://github.com/juliamassuda) |
+| `0.4` | Integração da seção de Equipe na página Início. | 12/05/2026 | [Júlia](https://github.com/juliamassuda) |
 
