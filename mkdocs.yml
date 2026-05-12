@@ -40,7 +40,10 @@ markdown_extensions:
       generic: true
 
 nav:
-  - Home: index.md
+  - Início: index.md
+  - EU1 - Fase 1:
+      - Objetivo: fases/fase1/objetivo.md
+      - Resultados Esperados: fases/fase1/resultados.md
 
 extra_css:
   - stylesheets/extra.css
