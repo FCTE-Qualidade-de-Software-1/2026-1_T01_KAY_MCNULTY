@@ -1,17 +1,12 @@
-# Resultados Esperados - Fase 1
+# Fase 1: Resultados Esperados
+
 
 ## Visão Geral
 
 Esta seção descreve os resultados esperados ao final da Fase 1 (Definição dos Requisitos de Avaliação da Qualidade). Os resultados servirão como base para as próximas fases e serão documentados tanto nesta GitPages quanto no relatório técnico a ser enviado ao Moodle.
 
----
 
 ## Resultados Esperados
-
-_(Seção em desenvolvimento - Responsáveis: Tiago, Samuel e +1)_
-
-### Subseções a Completar
-
 ### **1. Requisitante e Partes Interessadas**
 
 O mapeamento estruturado das partes interessadas reflete as necessidades reais do contexto acadêmico do AcheiUnB e dita a priorização das características de qualidade da avaliação.
