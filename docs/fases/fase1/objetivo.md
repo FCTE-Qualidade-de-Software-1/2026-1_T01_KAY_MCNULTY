@@ -76,3 +76,4 @@ A avaliação de qualidade do AcheiUnB contribui diretamente para:
 | Versão | Descrição | Data | Responsável |
 | ------ | --------- | ---- | ----------- |
 | `0.1` | Criação inicial do Objetivo da Fase 1 com estrutura completa de propósito, características e alinhamento com ODS. | 12/05/2026 | [Júlia](https://github.com/juliamassuda) |
+| `0.2` | Validação e consolidação do documento com dados de OWASP ZAP e SonarCloud. | 13/05/2026 | [Júlia](https://github.com/juliamassuda) |
