@@ -59,7 +59,7 @@ A equipe de qualidade de software é composta por estudantes dedicados da Faculd
 | ![Tiago](https://github.com/tiagobalieiro.png?size=64) | **Tiago Antunes** | [@TiagoBalieiro](https://github.com/tiagobalieiro) |
 | ![Samuel](https://via.placeholder.com/64?text=Samuel) | **Samuel** | TBD |
 | ![João Pedro](https://github.com/JpRodrigues2.png?size=64) | **João Pedro Rodrigues Gomes da Silva** | [@JpRodrigues2](https://github.com/JpRodrigues2) |
-| ![Marjorie](https://via.placeholder.com/64?text=Marjorie) | **Marjorie** | TBD |
+| ![Marjorie](https://github.com/Marjoriemitzi.png?size=64) | **Marjorie** | [@Marjoriemitzi](https://github.com/Marjoriemitzi) |
 
 ---
 
