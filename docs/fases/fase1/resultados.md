@@ -12,24 +12,189 @@ Esta seção descreve os resultados esperados ao final da Fase 1 (Definição do
 
 ### Subseções a Completar
 
-1. **Requisitante e Partes Interessadas**
-   - Mapeamento estruturado das partes interessadas
-   - Papel e necessidades de cada stakeholder
+### **1. Requisitante e Partes Interessadas**
 
-2. **Descrição Estruturada do AcheiUnB**
-   - Classificação do tipo de produto
-   - Arquitetura técnica e módulos
+O mapeamento estruturado das partes interessadas reflete as necessidades reais do contexto acadêmico do AcheiUnB e dita a priorização das características de qualidade da avaliação.
 
-3. **Modelo de Qualidade**
-   - Características escolhidas (Segurança e Manutenibilidade)
-   - Critérios de priorização aplicados
-   - Relação com o propósito declarado
+| Parte Interessada | Papel e Necessidades |
+|---|---|
+| **Equipe de Qualidade (Requisitante)** | Através da disciplina de Qualidade de Software, audita o sistema exigindo métricas rigorosas baseadas na ISO/IEC 25010. |
+| **Universidade de Brasília (Cliente)** | Instituição que se beneficia do sistema para otimizar o fluxo de itens perdidos; exige respeito rigoroso à proteção de dados (LGPD). |
+| **Mantenedores e Comunidade (Fornecedores/Desenvolvedores)** | Desenvolvedores atuando em ambiente acadêmico/Open Source; precisam de código limpo e infraestrutura modular. |
+| **Segurança e Recepção da UnB (Operadores)** | Funcionários da universidade que registram e gerenciam os itens físicos através do painel do sistema. |
+| **Comunidade Acadêmica (Usuários Finais)** | Estudantes e servidores que interagem com o sistema e trocam mensagens via chat. |
 
-4. **Escopo, Profundidade e Objetos de Avaliação**
-   - Declaração de abrangência
-   - Profundidade de análise
+Além disso, a avaliação contempla dois focos principais de segurança:
 
-5. **ODS Relacionados**
+- **Segurança Profunda (SAST):** mitigar vulnerabilidades críticas de credenciais expostas (*Hardcoded Secrets*).
+- **Segurança de Borda (DAST):** configurar cabeçalhos de segurança essenciais no servidor, como CSP e Anti-clickjacking, além de corrigir o vazamento de recursos via CORS.
+
+### **2. Descrição Estruturada do AcheiUnB**
+
+O **AcheiUnB** é um sistema voltado à devolução de pertences no campus **FCTE da Universidade de Brasília**, organizado em módulos que se comunicam entre si para garantir o funcionamento da aplicação.
+
+#### **Módulos da Arquitetura**
+
+- **Módulo de Apresentação (Frontend)**
+    - Desenvolvido em **Vue.js**.
+    - Utiliza **Vite** como ferramenta de build e desenvolvimento.
+    - Utiliza **Tailwind CSS** para estilização da interface.
+    - Responsável por:
+        - Exibir as telas da aplicação;
+        - Permitir a interação do usuário com o sistema;
+        - Renderizar informações vindas da API.
+
+- **Módulo de Lógica e Integração (Backend)**
+    - Desenvolvido em **Python** com **Django REST Framework**.
+    - Atua como a API principal do sistema.
+    - Responsável por:
+        - Centralizar as regras de negócio;
+        - Gerenciar autenticação de usuários;
+        - Controlar permissões de acesso;
+        - Integrar o frontend com os dados persistidos.
+
+- **Módulo Assíncrono e Mensageria**
+    - Suporta a funcionalidade de **chat em tempo real**.
+    - Utiliza **Django Channels** e **WebSockets**.
+    - Conta com apoio de:
+        - *Workers* do **Celery**;
+        - Filas em **Redis**.
+    - Responsável por:
+        - Comunicação em tempo real;
+        - Processamento assíncrono;
+        - Suporte a tarefas que não precisam ser executadas diretamente na requisição principal.
+
+- **Módulo de Persistência e Orquestração**
+    - Utiliza **PostgreSQL** como banco de dados.
+    - A infraestrutura é empacotada e isolada com **Docker**.
+    - A orquestração dos serviços é feita via **Docker Compose**, por meio do arquivo `docker-compose.yml`.
+    - Responsável por:
+        - Armazenar os dados da aplicação;
+        - Organizar os serviços necessários para execução do sistema;
+        - Facilitar a reprodução do ambiente de desenvolvimento.
+
+### **3. Modelo de Qualidade e Características Escolhidas**
+
+O modelo adotado baseia-se na norma **ISO/IEC 25010 (SQuaRE)**.
+
+Conforme exigido pelas premissas iniciais do projeto, a avaliação concentra-se exclusivamente em características **intrínsecas** e **internas** do código.
+
+#### **3.1. Segurança (*Security*)**
+
+- **Prioridade:** Alta.
+
+- **Justificativa:** O sistema processa dados acadêmicos sensíveis e *chats* privados.
+    - Falhas de segurança podem permitir:
+        - Sequestro de contas;
+        - Extração de chaves de infraestrutura.
+
+- **Critério e Aplicação:** Avaliada de forma dupla:
+    - **Visão SAST (SonarCloud - Análise Estática):**
+        - A análise profunda do código revelou um cenário crítico de exposição de credenciais (**Blockers**).
+        - Foram detectadas senhas comprometidas escritas diretamente nos arquivos de teste do backend:
+            - `test_views.py`;
+            - `test_serializers.py`;
+            - `test_models.py`.
+        - Também foi identificado vazamento da **Django Secret Key** no arquivo `settings_production.py`.
+        - Além disso, houve exposição indevida de uma chave privada de certificado:
+            - `localhost.key`.
+
+    - **Visão DAST (OWASP ZAP - Análise Dinâmica na porta 5173):**
+        - Foram mapeados:
+            - `0` alertas de **Risco Alto**;
+            - `3` alertas de **Risco Médio**;
+            - `5` alertas de **Risco Baixo**.
+
+        - **Risco Médio:**
+            - Configuração sistêmica insegura de **CORS**, permitindo origens forjadas;
+            - Ausência de Política de Segurança de Conteúdo:
+                - `CSP Header Not Set`;
+            - Ausência de proteção contra clickjacking:
+                - `Anti-clickjacking Header`;
+                - `X-Frame-Options`.
+
+        - **Risco Baixo (*Hardening*):**
+            - Falta de cabeçalhos contra ataques paralelos:
+                - `Cross-Origin-Resource-Policy`;
+                - `Cross-Origin-Embedder-Policy`;
+                - `X-Content-Type-Options`.
+
+#### **3.2. Manutenibilidade (*Maintainability*)**
+
+- **Prioridade:** Alta.
+
+- **Justificativa:** A alta complexidade da *stack* tecnológica e a rotatividade de desenvolvedores exigem que o sistema seja altamente compreensível para garantir sua evolução nos próximos semestres.
+
+- **Critério e Aplicação:** Foco nas subcaracterísticas de:
+    - **Analisabilidade**;
+    - **Modificabilidade**;
+    - **Testabilidade**.
+
+    - **Visão SAST (SonarCloud):**
+        - A varredura identificou **184 apontamentos abertos**.
+        - A dívida técnica total acumulada foi de **2.270 minutos**, aproximadamente **37,8 horas**.
+        - A **Analisabilidade** é prejudicada por uma forte sobrecarga cognitiva.
+        - Componentes Vue críticos atingiram pontuações de complexidade ciclomática de `27`, quando o limite aceitável é `15`:
+            - `Form-Found.vue`;
+            - `Form-Lost.vue`.
+
+        - Também foram identificados problemas como:
+            - Incidência de código duplicado no backend;
+            - Literais de e-mail repetidos;
+            - Mensagens de erro repetidas;
+            - Falta de higiene de código;
+            - Arquivos CSS vazios;
+            - *Imports* declarados, mas não utilizados;
+            - Variáveis declaradas, mas não utilizadas.
+
+
+### **4. Escopo, Profundidade e Objetivos de Avaliação**
+
+- **Objeto de Avaliação:** A instância do frontend em execução (`http://localhost:5173`) e a base de código integral do repositório.
+    - Foram considerados:
+        - Arquivos Vue;
+        - Rotas Python/Django;
+        - Arquivos de testes.
+
+- **Escopo:** Avaliação estática e dinâmica de qualidade e segurança.
+    - A avaliação segue uma abordagem de **Shift-Left Security**.
+    - O objetivo é garantir:
+        - Auditoria estrutural do código;
+        - Auditoria da camada de rede;
+        - Identificação antecipada de falhas de segurança e qualidade.
+
+- **Profundidade:** Análise em duas camadas:
+    - **Camada de superfície e integração (DAST):**
+        - Validou a blindagem dos *endpoints* contra injeções de terceiros.
+        - Identificou problemas relacionados à ausência ou má configuração de:
+            - CSP;
+            - CORS.
+
+    - **Camada profunda (SAST):**
+        - Realizou uma varredura rigorosa de código.
+        - Detectou falhas sistêmicas, como:
+            - Credenciais *hardcoded*;
+            - Código espaguete no *frontend*.
+
+- **Relação com Avaliações Futuras e Plano de Ação:** O sucesso desta etapa dita as prioridades imediatas do projeto.
+    - As ações prioritárias são:
+        - Remover as chaves expostas;
+        - Configurar os cabeçalhos de segurança;
+        - Tratar requisitos bloqueantes antes da evolução do projeto.
+
+    - Cabeçalhos de segurança prioritários:
+        - CSP;
+        - `X-Frame-Options`.
+
+    - A configuração pode ser realizada via:
+        - Nginx;
+        - Django Middleware.
+
+    - Esses ajustes são necessários antes que o projeto avance de forma segura para:
+        - Testes funcionais;
+        - Homologação.
+
+### **5. ODS Relacionados**
    - ODS conectados ao software
    - Metas e indicadores associados
 
@@ -40,3 +205,4 @@ Esta seção descreve os resultados esperados ao final da Fase 1 (Definição do
 | Versão | Descrição | Data | Responsável |
 | ------ | --------- | ---- | ----------- |
 | `0.1` | Criação do template para Resultados Esperados da Fase 1. | 12/05/2026 | [Júlia](https://github.com/juliamassuda) |
+| `0.2` | Adição das seções 1,2,3 e 4 dos Resultados Esperados da Fase 1 | 12/05/2026 | [Tiago Antunes](https://github.com/tiagobalieiro) |

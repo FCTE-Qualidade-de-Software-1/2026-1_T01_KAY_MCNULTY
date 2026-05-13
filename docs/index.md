@@ -56,7 +56,7 @@ A equipe de qualidade de software é composta por estudantes dedicados da Faculd
 | :--: | :------: | :------: |
 | ![Júlia](https://github.com/juliamassuda.png?size=64) | **Júlia Massuda** | [@juliamassuda](https://github.com/juliamassuda) |
 | ![Luiz](https://github.com/luizfaria1989.png?size=64) | **Luiz Faria** | [@luizfaria1989](https://github.com/luizfaria1989) |
-| ![Tiago](https://via.placeholder.com/64?text=Tiago) | **Tiago** | TBD |
+| ![Tiago](https://github.com/tiagobalieiro.png?size=64) | **Tiago Antunes** | [@TiagoBalieiro](https://github.com/tiagobalieiro) |
 | ![Samuel](https://via.placeholder.com/64?text=Samuel) | **Samuel** | TBD |
 | ![+1](https://via.placeholder.com/64?text=+1) | **+1** | TBD |
 | ![Marjorie](https://via.placeholder.com/64?text=Marjorie) | **Marjorie** | TBD |
