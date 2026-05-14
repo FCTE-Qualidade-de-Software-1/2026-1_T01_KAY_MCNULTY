@@ -223,3 +223,4 @@ O **AcheiUnB**, em sua missão e operação técnica, alinha-se aos seguintes Ob
 | `0.1`  | Criação do template para Resultados Esperados da Fase 1.                | 12/05/2026 | [Júlia](https://github.com/juliamassuda)                               |
 | `0.2`  | Adição das seções 1,2,3 e 4 dos Resultados Esperados da Fase 1          | 12/05/2026 | [Tiago Antunes](https://github.com/tiagobalieiro)                      |
 | `0.3`  | Adição da seção 5 (ODS Relacionados) dos Resultados Esperados da Fase 1 | 13/05/2026 | [João Pedro Rodrigues Gomes da Silva](https://github.com/JpRodrigues2) |
+| `0.4`  | Adição das imagens em Resultados Esperados da Fase 1 | 13/05/2026 | [Marjorie Mitzi](https://github.com/Marjoriemitzi) |
