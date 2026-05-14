@@ -28,7 +28,7 @@ Além disso, a avaliação contempla dois focos principais de segurança:
 
 O **AcheiUnB** é um sistema voltado à devolução de pertences no campus **FCTE da Universidade de Brasília**, organizado em módulos que se comunicam entre si para garantir o funcionamento da aplicação.
 
-![Arquitetura do Sistema AcheiUnB](docs\img\arquitetura.jpg)
+![Arquitetura do Sistema AcheiUnB](img/arquitetura.jpg)
 
 *Figura 1: Arquitetura do Sistema AcheiUnB (Vue.js, Django, Redis, Celery e PostgreSQL).*
 
@@ -80,7 +80,7 @@ O modelo adotado baseia-se na norma **ISO/IEC 25010 (SQuaRE)**.
 
 Conforme exigido pelas premissas iniciais do projeto, a avaliação concentra-se exclusivamente em características **intrínsecas** e **internas** do código.
 
-![Modelo de Qualidade ISO/IEC 25010 Adaptado para o AcheiUnB](docs\img\modelo-iso.jpg)
+![Modelo de Qualidade ISO/IEC 25010 Adaptado para o AcheiUnB](img/modelo-iso.jpg)
 
 *Figura 2: Adaptação do Modelo ISO/IEC 25010. As características em destaque (verde) representam o escopo da avaliação atual. As demais foram suprimidas pontualmente para focar nas necessidades mais críticas dos stakeholders e na segurança dos dados (LGPD).*
 
