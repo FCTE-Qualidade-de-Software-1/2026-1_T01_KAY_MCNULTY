@@ -57,7 +57,7 @@ A equipe de qualidade de software é composta por estudantes dedicados da Faculd
 | ![Júlia](https://github.com/juliamassuda.png?size=64) | **Júlia Massuda** | [@juliamassuda](https://github.com/juliamassuda) |
 | ![Luiz](https://github.com/luizfaria1989.png?size=64) | **Luiz Faria** | [@luizfaria1989](https://github.com/luizfaria1989) |
 | ![Tiago](https://github.com/tiagobalieiro.png?size=64) | **Tiago Antunes** | [@TiagoBalieiro](https://github.com/tiagobalieiro) |
-| ![Samuel](https://via.placeholder.com/64?text=Samuel) | **Samuel** | TBD |
+| ![Samuel](https://github.com/samuelncaetano.png?size=64) | **Samuel** | [@samuelncaetano](https://github.com/samuelncaetano) |
 | ![João Pedro](https://github.com/JpRodrigues2.png?size=64) | **João Pedro Rodrigues Gomes da Silva** | [@JpRodrigues2](https://github.com/JpRodrigues2) |
 | ![Marjorie](https://github.com/Marjoriemitzi.png?size=64) | **Marjorie** | [@Marjoriemitzi](https://github.com/Marjoriemitzi) |
 
@@ -70,4 +70,5 @@ A equipe de qualidade de software é composta por estudantes dedicados da Faculd
 | `0.3` | Integração da seção de Equipe na página Início e reorganização das abas de navegação. | 12/05/2026 | [Júlia](https://github.com/juliamassuda) |
 | `0.4` | Integração da seção de Equipe na página Início. | 12/05/2026 | [Júlia](https://github.com/juliamassuda) |
 | `0.5` | Adição de João Pedro Rodrigues Gomes da Silva como membro da equipe. | 13/05/2026 | [João Pedro](https://github.com/JpRodrigues2) |
+| `0.6` | Adição de Samuel Caetano como membro da equipe. | 13/05/2026 | [Luiz](https://github.com/luizfaria1989) |
 
