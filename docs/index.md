@@ -46,6 +46,12 @@ O AcheiUnB atua como uma ferramenta que busca incentivar o comportamento ético 
 
 ---
 
+## Declaração de Uso de IA
+
+Este projeto utiliza IA para auxiliar nas seguintes tarefas: organização e estruturação da documentação das fases de avaliação de qualidade. Toda a documentação foi revisada, adaptada e ajustada pela equipe para garantir a consistência com o contexto específico do projeto AcheiUnB e os requisitos da disciplina de Qualidade de Software.
+
+---
+
 ## Equipe de Qualidade de Software - KAY McNULTY
 
 A equipe de qualidade de software é composta por estudantes dedicados da Faculdade de Ciências e Tecnologias em Engenharia da Universidade de Brasília, trabalhando conjuntamente no projeto de avaliação de qualidade do **AcheiUnB**.
@@ -71,4 +77,5 @@ A equipe de qualidade de software é composta por estudantes dedicados da Faculd
 | `0.4` | Integração da seção de Equipe na página Início. | 12/05/2026 | [Júlia](https://github.com/juliamassuda) |
 | `0.5` | Adição de João Pedro Rodrigues Gomes da Silva como membro da equipe. | 13/05/2026 | [João Pedro](https://github.com/JpRodrigues2) |
 | `0.6` | Adição de Samuel Caetano como membro da equipe. | 13/05/2026 | [Luiz](https://github.com/luizfaria1989) |
+| `0.7` | Adição de declaração de uso de IA e atualização para conformidade com requisitos EU1. | 01/06/2026 | [Júlia Massuda](https://github.com/juliamassuda) |
 
