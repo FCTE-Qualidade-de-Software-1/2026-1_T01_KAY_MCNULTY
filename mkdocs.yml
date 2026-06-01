@@ -44,6 +44,7 @@ nav:
   - EU1 - Fase 1:
       - Objetivo: fases/fase1/objetivo.md
       - Resultados Esperados: fases/fase1/resultados.md
+      - Dados Brutos e Consolidados: fases/fase1/dados-brutos.md
       - Entregas: fases/fase1/entregas.md
 
 extra_css:
