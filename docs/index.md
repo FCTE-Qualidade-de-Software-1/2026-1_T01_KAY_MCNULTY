@@ -36,13 +36,34 @@ O AcheiUnB contempla os seguintes objetivos propostos pela ONU:
 
 O Achei UnB representa uma inovação tecnológica dos estudantes projetada para resolver um problema de logística e comunicação. A plataforma atua como um facilitador e intermediador para a entrega e registro de objetos perdidos, os quais costumam ser anunciados em grupos de WhatsApp, Telegram e posts no Instagram.
 
+* **Meta Relacionada: Meta 9.b** - Apoiar o desenvolvimento tecnológico, a pesquisa e a inovação nacionais nos países em desenvolvimento.
+* **Indicadores e Métricas de Software:**
+
+    * **Taxa de Adoção Tecnológica:** Número de usuários ativos cadastrados na plataforma por semestre letivo. 
+    * **Volume de Tráfego Estruturado:** Quantidade de requisições de itens perdidos centralizadas no sistema em comparação à estimativa de mensagens informais.
+    * **Disponibilidade da Infraestrutura (Uptime):** Manter a plataforma acessível e funcional em pelo menos 99% do tempo, garantindo confiabilidade tecnológica.
+
 #### ODS 12 - Consumo e Produção Responsáveis
 
 O AcheiUnB, ao ser uma plataforma eficaz para a recuperação de itens perdidos, evita com que os estudantes precisem comprar novos produtos para substituir os perdidos. Dessa forma, o projeto, ajuda a prolongar a vida útil dos materiais e minimizando o consumo desnecessário de novos recursos
 
+* **Meta Relacionada (ONU): Meta 12.5** - Até 2030, reduzir substancialmente a geração de resíduos por meio da prevenção, redução, reciclagem e reúso.
+* **Indicadores e Métricas do Software:**
+    
+    * **Taxa de Sucesso de Devolução:** Percentual de itens cadastrados como "Achados" que foram efetivamente devolvidos aos seus donos reais na plataforma (Ex: Meta interna de 60% de resolução).
+    * **Volume de Reúso (Prevenção de Descarte):** Quantidade total absoluta de itens recuperados no semestre.
+    * **Tempo Médio de Recuperação:** Tempo decorrido entre o registro do item na plataforma e a confirmação de devolução (indicando a eficiência em evitar novas compras emergenciais).
+
 #### ODS 16 - Paz, Justiça e Instituições Eficazes
 
 O AcheiUnB atua como uma ferramenta que busca incentivar o comportamento ético e a empatia dos alunos da universidade. Ela facilita ação de que deseja ser honesto e devolver um objeto ao seu verdadeiro dono. Como consequência, a plataforma, promove uma cultura de confiança e cooperação entre os estudantes do campis da universidade.
+
+*   **Meta Relacionada (ONU): Meta 16.6** - Desenvolver instituições eficazes, responsáveis e transparentes em todos os níveis.
+*   **Indicadores e Métricas do Software:**
+    
+    * **Índice de Transparência:** Número de logs de transação concluídos (registro de entrega e aceite entre as partes) armazenados com sucesso e sem contestações.
+    * **Taxa de Satisfação e Confiança:** Média das avaliações do processo de devolução feitas pelos usuários após a conclusão de uma entrega (Ex: Nota média de 4.5/5).
+    * **Taxa de Falsos Reportes:** Monitoramento do número de usuários banidos ou denúncias de má-fé, visando manter a incidência próxima a 0%.
 
 ---
 
@@ -78,4 +99,5 @@ A equipe de qualidade de software é composta por estudantes dedicados da Faculd
 | `0.5` | Adição de João Pedro Rodrigues Gomes da Silva como membro da equipe. | 13/05/2026 | [João Pedro](https://github.com/JpRodrigues2) |
 | `0.6` | Adição de Samuel Caetano como membro da equipe. | 13/05/2026 | [Luiz](https://github.com/luizfaria1989) |
 | `0.7` | Adição de declaração de uso de IA e atualização para conformidade com requisitos EU1. | 01/06/2026 | [Júlia Massuda](https://github.com/juliamassuda) |
+| `0.8` | Melhorias nas descrições dos ODS conforme solicitado nos requisitos EU1. | 01/06/2026 | [Luiz](https://github.com/luizfaria1989) |
 
