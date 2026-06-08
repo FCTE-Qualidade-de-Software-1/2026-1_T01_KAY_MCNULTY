@@ -48,6 +48,9 @@ nav:
       - Entregas: fases/fase1/entregas.md
   - EU2 - Fase 2:
       - Objetivos GQM: fases/fase2/gqm-objetivos.md
+  - EU2 - Fase 4:
+      - Análise de Resultados: fases/fase4/analise-resultados.md
+  
 
 extra_css:
   - stylesheets/extra.css
