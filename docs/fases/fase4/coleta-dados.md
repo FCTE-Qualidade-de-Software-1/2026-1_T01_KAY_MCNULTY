@@ -66,3 +66,9 @@ Os vídeos confirmam a autoria das medições e atestam que as extrações deriv
 
 - **Vídeo da Execução do Script de Extração (SonarCloud API):** https://youtu.be/jpefySo02Ik
 - **Vídeo da Execução da Varredura Dinâmica (OWASP ZAP Local):** https://youtu.be/mfagHn5AnNI
+
+## Histórico de Versões
+
+| Versão | Descrição                                                                                                                      |    Data    | Responsável |
+| :----: | :----------------------------------------------------------------------------------------------------------------------------- | :--------: | :---------: |
+|  0.1   | "Registro e consolidação do processo de coleta de métricas e dados brutos necessários para a análise de resultados da Fase 4." | 09/06/2026 |   Samuel    |
