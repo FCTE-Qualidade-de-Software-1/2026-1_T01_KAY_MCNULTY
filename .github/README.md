@@ -33,7 +33,8 @@ pip install mkdocs-material
 # Inicie o servidor local
 mkdocs serve
 
-## Equipe KAY McNULTY
+
+##  Equipe KAY McNULTY
 
 João Pedro Rodrigues Gomes da Silva
 
