@@ -9,7 +9,7 @@
 | **Tiago Antunes** | 3 | Plano de avaliação: método, recursos, cronograma, rastreabilidade Fase 2→3 | 16,6% |
 | **Samuel Caetano** | 4 | Execução SAST e DAST, dados brutos, vídeos de evidência | 16,6% |
 | **João Pedro Rodrigues** | 4 | Análise de métricas, respostas GQM, julgamento, plano de ação | 16,6% |
-| **Marjorie Mitzi** | Geral | Classificação do produto, GitPage, relatório Moodle, tabela de contribuição, declaração de IA, release | 17,0% |
+| **Marjorie Mitzi** | Geral | Classificação do produto, GitPage, relatório Moodle, tabela de contribuição, declaração de IA, release | 16,6% |
 | **TOTAL** | | | **100%** |
 
 ---
