@@ -188,8 +188,20 @@ Além disso, a escolha de **GitHub Actions** para a varredura dinâmica e de um 
 
 ---
 
+## Referências Bibliográficas
+
+1. ZAP by Checkmarx. **ZAP Documentation**. Disponível em: <https://www.zaproxy.org/docs/>. Acesso em: 11 jun. 2026.
+2. ZAP by Checkmarx. **ZAP - Full Scan**. Disponível em: <https://www.zaproxy.org/docs/docker/full-scan/>. Acesso em: 11 jun. 2026.
+3. SonarSource. **Web API | SonarQube Cloud | Sonar Documentation**. Disponível em: <https://docs.sonarsource.com/sonarqube-cloud/appendices/web-api>. Acesso em: 11 jun. 2026.
+4. GitHub. **GitHub Actions documentation**. Disponível em: <https://docs.github.com/en/actions>. Acesso em: 11 jun. 2026.
+5. Requests Developers. **Quickstart — Requests documentation**. Disponível em: <https://requests.readthedocs.io/en/latest/user/quickstart/>. Acesso em: 11 jun. 2026.
+6. Kumar, S.; Bonnefoy-Claudet, B. **python-dotenv**. Disponível em: <https://bbc2.github.io/python-dotenv/>. Acesso em: 11 jun. 2026.
+
+---
+
 ## Histórico de Versões
 
 | Versão | Descrição | Data | Responsável |
 | --- | --- | --- | --- |
 | `0.1` | Criação do documento de Plano de Avaliação da Fase 3 com método reprodutível, recursos, cronograma real e consistência com as Fases 2 e 4. | 11/06/2026 | [Tiago Antunes](https://github.com/TiagoAntunesBalieiro) |
+| `0.2` | Adição da seção de referências bibliográficas com documentação oficial das ferramentas e bibliotecas utilizadas no método de avaliação. | 11/06/2026 | [Tiago Antunes](https://github.com/TiagoAntunesBalieiro) |
