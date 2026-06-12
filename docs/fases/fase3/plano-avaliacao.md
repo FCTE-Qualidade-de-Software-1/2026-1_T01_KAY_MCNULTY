@@ -2,7 +2,7 @@
 
 ## Visão Geral
 
-Esta fase formaliza o método de avaliação que conecta as métricas definidas na [Fase 2 — Objetivos de Medição GQM](../fase2/gqm-objetivos.md) e na [Fase 2 — Métricas e Critérios](../fase2/metricas-criterios.md) à execução prática documentada na [Fase 4 — Execução e Coleta de Dados Brutos](../fase4/coleta-dados.md). O objetivo é garantir que a avaliação de Segurança e Manutenibilidade do AcheiUnB possa ser repetida por um avaliador externo, com os mesmos recursos, mesmas etapas e mesmo tipo de evidência bruta.
+Esta fase formaliza o método de avaliação que conecta as métricas definidas na [Fase 2 — Objetivos de Medição GQM](../fase2/gqm-objetivos.md) e na [Fase 2 — Métricas e Critérios](../fase2/metricas-criterios.md) à execução prática prevista para a Fase 4, etapa em que as medições serão coletadas e registradas. O objetivo é garantir que a avaliação de Segurança e Manutenibilidade do AcheiUnB possa ser repetida por um avaliador externo, com os mesmos recursos, mesmas etapas e mesmo tipo de evidência bruta.
 
 O plano adota dois métodos complementares:
 
@@ -10,6 +10,17 @@ O plano adota dois métodos complementares:
 - **SAST (Static Application Security Testing)** com SonarCloud para medir exposição de segredos, complexidade cognitiva, dívida técnica e falhas de acessibilidade diretamente na base de código.
 
 Essa combinação mantém coerência com o propósito da Fase 1, que priorizou Segurança e Manutenibilidade como atributos críticos para um sistema acadêmico que processa dados pessoais e depende de manutenção contínua por equipes com alta rotatividade.
+
+---
+
+## Organização da Fase 3
+
+A Fase 3 foi organizada em duas páginas complementares para facilitar navegação e revisão:
+
+| Página | Conteúdo principal | Critério |
+| --- | --- | --- |
+| **Esta página** | Visão geral, método, rastreabilidade e recursos de avaliação | **F3-C1** e **F3-C2** |
+| [Cronograma, Consistência e Referências](cronograma-avaliacao.md) | Sequência de atividades, justificativa metodológica e bibliografia | **F3-C3** e **F3-C8** |
 
 ---
 
@@ -29,7 +40,7 @@ As medições devem ser realizadas sobre o mesmo objeto de avaliação definido 
 
 ### 1.2. Procedimento DAST com OWASP ZAP
 
-O método dinâmico deve ser executado de forma automatizada por meio de GitHub Actions, reproduzindo o mesmo fluxo utilizado para coletar as evidências posteriormente registradas na Fase 4.
+O método dinâmico deve ser executado de forma automatizada por meio de GitHub Actions, de modo que a Fase 4 possa registrar evidências obtidas a partir de um fluxo previamente definido, estável e reproduzível.
 
 #### Passo a passo
 
@@ -88,7 +99,7 @@ SONAR_ORG
 ```
 
 3. Preparar um ambiente Python 3.10+ com as bibliotecas `requests` e `python-dotenv` instaladas.
-4. Executar o script `extrator_sonar.py` em ambiente local ou controlado. Na evidência registrada pela equipe, o script foi executado com Poetry, mas o uso de Poetry não é obrigatório para repetir o método.
+4. Executar o script `extrator_sonar.py` em ambiente local ou controlado. O uso de Poetry é opcional e pode ser adotado apenas como camada de isolamento de dependências, sem alterar o método de coleta.
 5. Fazer o script carregar as variáveis de ambiente e autenticar na API do SonarCloud.
 6. Consultar o endpoint:
 
@@ -164,44 +175,10 @@ O método foi desenhado para um avaliador com perfil de desenvolvedor em nível 
 
 ---
 
-## 3. Cronograma de Avaliação (F3-C3)
-
-O cronograma abaixo consolida as datas reais já evidenciadas na documentação e no histórico do projeto, alinhando a Fase 3 com a execução efetiva da Fase 4.
-
-| Atividade | Responsável | Data real | Evidência |
-| --- | --- | --- | --- |
-| Coleta original SAST no SonarCloud | Samuel Caetano | 09/05/2026 | Dados brutos da Fase 1 |
-| Coleta original DAST com OWASP ZAP | Samuel Caetano | 09/05/2026 | Dados brutos da Fase 1 |
-| Organização e publicação dos dados brutos no repositório | Júlia Massuda | 01/06/2026 | Histórico da Fase 1 |
-| Formalização dos objetivos GQM | Júlia Massuda | 05/06/2026 | Histórico de `gqm-objetivos.md` |
-| Consolidação das métricas e critérios de julgamento | Luiz Faria | 07/06/2026 | Histórico de `metricas-criterios.md` |
-| Documentação da execução e coleta da Fase 4 | Samuel Caetano | 09/06/2026 | Histórico de `coleta-dados.md` |
-| Redação e revisão do Plano de Avaliação da Fase 3 | Tiago Antunes | 11/06/2026 | Histórico de `plano-avaliacao.md` |
-
----
-
-## 4. Consistência entre as Fases 2 e 3 (F3-C8)
-
-O método definido nesta fase é diretamente coerente com as métricas, níveis de pontuação e critérios de julgamento da Fase 2. A métrica **M1.1** depende de alertas observáveis em execução, por isso o uso de **OWASP ZAP** como método DAST é o mais adequado para identificar falhas como ausência de cabeçalhos HTTP e problemas de exposição externa. Já as métricas **M1.2**, **M2.1**, **M2.2** e **M2.3** dependem de severidade de issue, regra aplicada, complexidade cognitiva e dívida técnica calculadas sobre a base de código, o que torna o **SonarCloud** a fonte coerente para essas medições.
-
-Além disso, a escolha de **GitHub Actions** para a varredura dinâmica e de um **script parametrizado** para extração da API do SonarCloud reforça a reprodutibilidade, a auditabilidade e a aderência direta às evidências registradas na Fase 4. Em vez de depender de observações manuais ou interpretação subjetiva, o plano privilegia mecanismos automatizados e saídas brutas versionáveis, o que sustenta a rastreabilidade entre a definição conceitual da Fase 2, a execução da Fase 4 e o julgamento final do produto avaliado.
-
----
-
-## Referências Bibliográficas
-
-1. ZAP by Checkmarx. **ZAP Documentation**. Disponível em: <https://www.zaproxy.org/docs/>. Acesso em: 11 jun. 2026.
-2. ZAP by Checkmarx. **ZAP - Full Scan**. Disponível em: <https://www.zaproxy.org/docs/docker/full-scan/>. Acesso em: 11 jun. 2026.
-3. SonarSource. **Web API | SonarQube Cloud | Sonar Documentation**. Disponível em: <https://docs.sonarsource.com/sonarqube-cloud/appendices/web-api>. Acesso em: 11 jun. 2026.
-4. GitHub. **GitHub Actions documentation**. Disponível em: <https://docs.github.com/en/actions>. Acesso em: 11 jun. 2026.
-5. Requests Developers. **Quickstart — Requests documentation**. Disponível em: <https://requests.readthedocs.io/en/latest/user/quickstart/>. Acesso em: 11 jun. 2026.
-6. Kumar, S.; Bonnefoy-Claudet, B. **python-dotenv**. Disponível em: <https://bbc2.github.io/python-dotenv/>. Acesso em: 11 jun. 2026.
-
----
-
 ## Histórico de Versões
 
 | Versão | Descrição | Data | Responsável |
 | --- | --- | --- | --- |
-| `0.1` | Criação do documento de Plano de Avaliação da Fase 3 com método reprodutível, recursos, cronograma real e consistência com as Fases 2 e 4. | 11/06/2026 | [Tiago Antunes](https://github.com/TiagoAntunesBalieiro) |
-| `0.2` | Adição da seção de referências bibliográficas com documentação oficial das ferramentas e bibliotecas utilizadas no método de avaliação. | 11/06/2026 | [Tiago Antunes](https://github.com/TiagoAntunesBalieiro) |
+| `0.1` | Criação do documento de Plano de Avaliação da Fase 3 com método reprodutível, recursos, cronograma real e consistência com as Fases 2 e 4. | /09/2026 | [Tiago Antunes](https://github.com/TiagoAntunesBalieiro) |
+| `0.2` | Adição da seção de referências bibliográficas com documentação oficial das ferramentas e bibliotecas utilizadas no método de avaliação. | 09/06/2026 | [Tiago Antunes](https://github.com/TiagoAntunesBalieiro) |
+| `0.4` | Reorganização da Fase 3 em múltiplas páginas para melhorar a navegação e separar método, ambiente, cronograma e fechamento metodológico. | 12/06/2026 | [Tiago Antunes](https://github.com/TiagoAntunesBalieiro) |

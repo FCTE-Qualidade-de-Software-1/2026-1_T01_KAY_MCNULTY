@@ -1,4 +1,4 @@
-# Fase 2: Entregas
+# Fase 4: Entregas
 
 ## Tabela de Contribuição
 
@@ -18,5 +18,5 @@
 
 | Versão | Descrição | Data | Responsável |
 | ------ | --------- | ---- | ----------- |
-| `0.1` | Criação da página de Entregas EU2 com tabela de contribuição. | 09/06/2026 | [Marjorie Mitzi](https://github.com/Marjoriemitzi) |
+| `0.1` | Criação da página de Entregas com tabela de contribuição. | 13/05/2026 | [Júlia](https://github.com/juliamassuda) |
 | `0.2` | Padronização das tabelas de contribuição | 12/06/2026 | [Tiago Antunes](https://github.com/TiagoAntunesBalieiro) |
