@@ -41,7 +41,6 @@ markdown_extensions:
 
 nav:
   - Início: index.md
-  - Equipe: equipe.md
   - EU1 - Fase 1:
       - Objetivo: fases/fase1/objetivo.md
       - Resultados Esperados: fases/fase1/resultados.md
