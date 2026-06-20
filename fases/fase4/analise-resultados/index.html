@@ -1047,6 +1047,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#23-confirmacao-e-refutacao-das-hipoteses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Confirmação e Refutação das Hipóteses
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1075,10 +1086,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#historico-de-versoes" class="md-nav__link">
+  <a href="#5-historico-de-versoes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Histórico de Versões
+        5. Histórico de Versões
       
     </span>
   </a>
@@ -1200,6 +1211,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#23-confirmacao-e-refutacao-das-hipoteses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Confirmação e Refutação das Hipóteses
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1228,10 +1250,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#historico-de-versoes" class="md-nav__link">
+  <a href="#5-historico-de-versoes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Histórico de Versões
+        5. Histórico de Versões
       
     </span>
   </a>
@@ -1302,39 +1324,35 @@
 <p>Com base nas métricas avaliadas, as perguntas operacionais formuladas na Fase 2 podem ser respondidas formalmente:</p>
 <h3 id="21-objetivo-g1-seguranca">2.1. Objetivo G1 (Segurança)</h3>
 <ul>
-<li>
-<p><strong>Q1.1: O sistema possui uma postura resiliente contra ataques comuns em aplicações web?</strong></p>
-<ul>
+<li><strong>Q1.1: O sistema possui uma postura resiliente contra ataques comuns em aplicações web?</strong><ul>
 <li><strong>Resposta:</strong> Não. A aplicação carece de defesas fundamentais nos cabeçalhos HTTP, estando suscetível a consultas AJAX não autorizadas e ataques de <em>Clickjacking</em> devido a configurações permissivas de CORS e falta de políticas CSP.</li>
 </ul>
 </li>
-<li>
-<p><strong>Q1.2: Existem falhas nas práticas de codificação segura que exponham o sistema?</strong></p>
-<ul>
+<li><strong>Q1.2: Existem falhas nas práticas de codificação segura que exponham o sistema?</strong><ul>
 <li><strong>Resposta:</strong> Sim. O repositório contém segredos fixados no código (senhas de utilizadores de teste e chaves SSL), o que é categorizado como risco crítico de segurança, comprometendo a base da aplicação.</li>
 </ul>
 </li>
-<li>
-<p><strong>Conclusão do Objetivo G1:</strong> O Objetivo de prover um ambiente seguro falhou. As métricas de segurança encontram-se em níveis insuficientes.</p>
-</li>
+<li><strong>Conclusão do Objetivo G1:</strong> O Objetivo de prover um ambiente seguro falhou. As métricas de segurança encontram-se em níveis insuficientes.</li>
 </ul>
 <h3 id="22-objetivo-g2-manutenibilidade">2.2. Objetivo G2 (Manutenibilidade)</h3>
 <ul>
-<li>
-<p><strong>Q2.1: A arquitetura e a escrita dos módulos facilitam a compreensão e a modificação?</strong></p>
-<ul>
+<li><strong>Q2.1: A arquitetura e a escrita dos módulos facilitam a compreensão e a modificação?</strong><ul>
 <li><strong>Resposta:</strong> Parcialmente. Embora a dívida técnica global não seja alarmante (2270 minutos), o <em>frontend</em> possui gargalos severos de legibilidade. Componentes principais de formulário concentram carga cognitiva altíssima (índice 27), prejudicando o entendimento do fluxo de dados por novos membros da equipa.</li>
 </ul>
 </li>
-<li>
-<p><strong>Q2.2: A interface do utilizador está construída seguindo as diretrizes de acessibilidade web?</strong></p>
-<ul>
+<li><strong>Q2.2: A interface do utilizador está construída seguindo as diretrizes de acessibilidade web?</strong><ul>
 <li><strong>Resposta:</strong> Não. Componentes essenciais de navegação e perfil carecem de marcações HTML estruturais, impedindo a navegação correta por tecnologias assistivas.</li>
 </ul>
 </li>
-<li>
-<p><strong>Conclusão do Objetivo G2:</strong> O Objetivo de garantir a manutenibilidade foi parcialmente atingido, possuindo ressalvas graves quanto à acessibilidade e à complexidade lógica das vistas principais.</p>
-</li>
+<li><strong>Conclusão do Objetivo G2:</strong> O Objetivo de garantir a manutenibilidade foi parcialmente atingido, possuindo ressalvas graves quanto à acessibilidade e à complexidade lógica das vistas principais.</li>
+</ul>
+<h3 id="23-confirmacao-e-refutacao-das-hipoteses">2.3. Confirmação e Refutação das Hipóteses</h3>
+<p>Com base nas respostas às questões acima e nos dados analisados, é possível confirmar ou refutar formalmente as hipóteses levantadas na Fase 2:</p>
+<ul>
+<li><strong>H1.1 (Confirmada):</strong> Os dados da métrica M1.1 (OWASP ZAP) comprovaram a ausência de vulnerabilidades críticas de injeção, atestando em contrapartida os alertas de nível médio referentes à falta de cabeçalhos essenciais de proteção (ausência de CSP e configurações brandas de CORS).</li>
+<li><strong>H1.2 (Confirmada):</strong> Os dados da métrica M1.2 (SonarCloud) constataram a presença de credenciais sensíveis fixadas no código-fonte, evidenciadas pelas senhas nos arquivos de teste (<code>test_views.py</code> e <code>test_models.py</code>) e chaves vazadas (<code>localhost.key</code>).</li>
+<li><strong>H2.1 (Confirmada):</strong> As medições M2.1 e M2.2 atestaram uma dívida técnica geral que não é alarmante (2270 minutos), mas identificaram alta complexidade cognitiva concentrada nos principais formulários em Vue (<code>Form-Found.vue</code> e <code>Form-Lost.vue</code>), que superam o limiar tolerável.</li>
+<li><strong>H2.2 (Confirmada):</strong> A métrica M2.3 validou as falhas esperadas de estruturação HTML, revelando ausência de vinculação adequada de <em>labels</em> (regra <code>Web:S6853</code>) e comprometendo a acessibilidade no <em>frontend</em>.</li>
 </ul>
 <h2 id="3-coerencia-com-o-proposito-da-avaliacao-f4-c4">3. Coerência com o Propósito da Avaliação (F4-C4)</h2>
 <p>O julgamento da qualidade reflete diretamente o Propósito da Avaliação estabelecido na Fase 1.</p>
@@ -1344,21 +1362,13 @@
 <p>O software AcheiUnB recebe o julgamento final de <strong>Insuficiente no Foco de Segurança</strong> e <strong>Satisfatório com Ressalvas no Foco de Manutenibilidade</strong>.</p>
 <p>Para que o projeto atinja o padrão exigido de engenharia de software e esteja apto para adoção em produção, as seguintes ações concretas são recomendadas aos mantenedores do repositório:</p>
 <ol>
-<li>
-<p><strong>Saneamento de Segredos (Urgente):</strong> Remover imediatamente o ficheiro <code>localhost.key</code> do controlo de versões e substituir todas as senhas em texto claro localizadas nos ficheiros <code>test_views.py</code> e <code>test_models.py</code> por injeção de variáveis de ambiente (<code>.env</code>) ou bibliotecas de simulação de objetos.</p>
-</li>
-<li>
-<p><strong>Refatoração de Frontend:</strong> Modularizar o código dos componentes <code>Form-Found.vue</code> e <code>Form-Lost.vue</code>. As funções que atualmente atingem o grau 27 de complexidade devem ser divididas em blocos menores e de responsabilidade única, visando um limite máximo de 15 pontos de índice cognitivo.</p>
-</li>
-<li>
-<p><strong>Implementação de Cabeçalhos de Segurança:</strong> Configurar os <em>middlewares</em> do Django (backend) para forçar a entrega dos cabeçalhos HTTP necessários para mitigar os alertas do ZAP: <code>Content-Security-Policy</code>, <code>X-Frame-Options</code> e restringir rigorosamente a diretiva <code>Access-Control-Allow-Origin</code>.</p>
-</li>
-<li>
-<p><strong>Correção de Acessibilidade:</strong> Rever a estrutura de todos os formulários da aplicação no repositório <em>fork</em> e posterior <em>upstream</em>, adicionando os atributos <code>alt</code> ausentes e associando corretamente as <em>tags</em> <code>&lt;label&gt;</code> aos seus respetivos <em>inputs</em>.</p>
-</li>
+<li><strong>Saneamento de Segredos (Urgente):</strong> Remover imediatamente o ficheiro <code>localhost.key</code> do controlo de versões e substituir todas as senhas em texto claro localizadas nos ficheiros <code>test_views.py</code> e <code>test_models.py</code> por injeção de variáveis de ambiente (<code>.env</code>) ou bibliotecas de simulação de objetos.</li>
+<li><strong>Refatoração de Frontend:</strong> Modularizar o código dos componentes <code>Form-Found.vue</code> e <code>Form-Lost.vue</code>. As funções que atualmente atingem o grau 27 de complexidade devem ser divididas em blocos menores e de responsabilidade única, visando um limite máximo de 15 pontos de índice cognitivo.</li>
+<li><strong>Implementação de Cabeçalhos de Segurança:</strong> Configurar os <em>middlewares</em> do Django (backend) para forçar a entrega dos cabeçalhos HTTP necessários para mitigar os alertas do ZAP: <code>Content-Security-Policy</code>, <code>X-Frame-Options</code> e restringir rigorosamente a diretiva <code>Access-Control-Allow-Origin</code>.</li>
+<li><strong>Correção de Acessibilidade:</strong> Rever a estrutura de todos os formulários da aplicação no repositório <em>fork</em> e posterior <em>upstream</em>, adicionando os atributos <code>alt</code> ausentes e associando corretamente as <em>tags</em> <code>&lt;label&gt;</code> aos seus respetivos <em>inputs</em>.</li>
 </ol>
 <hr />
-<h2 id="historico-de-versoes">Histórico de Versões</h2>
+<h2 id="5-historico-de-versoes">5. Histórico de Versões</h2>
 <table>
 <thead>
 <tr>
@@ -1380,6 +1390,12 @@
 <td>Criação do documento <code>analise-resultados.md</code> na estrutura do MkDocs, redação das respostas formais ao GQM, da conexão com o propósito da Fase 1, do julgamento final e do plano de ação, revisão e aprovação do conteúdo como responsável pelo escopo, correção de encoding e adição da tabela de Histórico de Versões.</td>
 <td>07/06/2026</td>
 <td><a href="https://github.com/JpRodrigues2">João Pedro Rodrigues Gomes da Silva</a></td>
+</tr>
+<tr>
+<td><code>0.3</code></td>
+<td>Adição da subseção 2.3 com a confirmação e refutação das hipóteses H1.1, H1.2, H2.1 e H2.2 com base nas métricas analisadas.</td>
+<td>20/06/2026</td>
+<td><a href="https://github.com/samuelncaetano">Samuel Caetano</a></td>
 </tr>
 </tbody>
 </table>
