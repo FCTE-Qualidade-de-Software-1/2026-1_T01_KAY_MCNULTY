@@ -26,6 +26,18 @@ A Fase 3 foi organizada em duas páginas complementares para facilitar navegaç�
 
 ## 1. Método de Avaliação e Reprodutibilidade (F3-C1)
 
+### 1.0. Pré-requisitos do avaliador
+
+Antes de iniciar a execução, o avaliador deve garantir que possui:
+
+| Pré-requisito | Detalhe |
+| --- | --- |
+| **Acesso ao repositório fork** | Conta no GitHub com permissão para acionar workflows via `workflow_dispatch` no repositório `samuelncaetano/2024-2-acheiunb` |
+| **Token do SonarCloud** | Conta no SonarCloud com o projeto `samuelncaetano/2024-2-acheiunb` acessível; token gerado em `My Account > Security > Generate Token` |
+| **Ambiente local** | Git, Python 3.10+, Docker e Docker Compose instalados e funcionais |
+| **Variáveis de ambiente** | Arquivo `.env` local contendo `SONAR_TOKEN`, `PROJECT_KEY`, `SONAR_BASE_URL` e `SONAR_ORG` preenchidos com os valores do projeto |
+| **Bibliotecas Python** | `requests` e `python-dotenv` instalados (`pip install requests python-dotenv`) |
+
 ### 1.1. Rastreabilidade entre métricas, métodos e saídas brutas
 
 | Métrica | Método | Ferramenta | Saída bruta |
@@ -182,3 +194,4 @@ O método foi desenhado para um avaliador com perfil de desenvolvedor em nível 
 | `0.1` | Criação do documento de Plano de Avaliação da Fase 3 com método reprodutível, recursos, cronograma real e consistência com as Fases 2 e 4. | /09/2026 | [Tiago Antunes](https://github.com/TiagoAntunesBalieiro) |
 | `0.2` | Adição da seção de referências bibliográficas com documentação oficial das ferramentas e bibliotecas utilizadas no método de avaliação. | 09/06/2026 | [Tiago Antunes](https://github.com/TiagoAntunesBalieiro) |
 | `0.4` | Reorganização da Fase 3 em múltiplas páginas para melhorar a navegação e separar método, ambiente, cronograma e fechamento metodológico. | 12/06/2026 | [Tiago Antunes](https://github.com/TiagoAntunesBalieiro) |
+| `0.5` | Correção EU3: adição da seção de pré-requisitos do avaliador (1.0) para tornar o método auto-suficiente sem exigir conhecimento prévio implícito. | 23/06/2026 | [Júlia Massuda](https://github.com/JuliaReis18) |
