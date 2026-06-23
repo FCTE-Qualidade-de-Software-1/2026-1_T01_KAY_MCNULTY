@@ -1310,13 +1310,13 @@
 </tr>
 <tr>
 <td><strong>M2.2 (Dívida Técnica Total)</strong></td>
-<td>O atributo de esforço extraído automaticamente (<code>effortTotal</code>) indica 2270 minutos (aproximadamente 37,8 horas). Considerando o volume de linhas de código do projeto, a densidade encontra-se na faixa aceitável.</td>
+<td>O atributo de esforço extraído automaticamente (<code>effortTotal</code>) indica 2270 minutos (aproximadamente 37,8 horas) de débito técnico. Com base no total de 13.581 linhas de código (<code>ncloc</code>) do projeto, extraído da API do SonarCloud, a densidade calculada é <span class="arithmatex">\(2270 / 13581 \approx 0,167\)</span> min/LOC.</td>
 <td><strong>Bom</strong></td>
 </tr>
 <tr>
 <td><strong>M2.3 (Acessibilidade HTML)</strong></td>
-<td>Constatou-se ausência de <em>labels</em> adequadas (violação da regra <code>Web:S6853</code>) em 3 ficheiros críticos de interface: <code>UserProfile.vue</code>, <code>ListItem.vue</code> e <code>Header-Message.vue</code>.</td>
-<td><strong>Insuficiente</strong></td>
+<td>Constatou-se ausência de <em>labels</em> adequadas (violação da regra <code>Web:S6853</code>) em 3 dos 44 ficheiros <code>.vue</code> analisados pelo SonarCloud: <code>UserProfile.vue</code>, <code>ListItem.vue</code> e <code>Header-Message.vue</code>. A proporção calculada é <span class="arithmatex">\(3 / 44 \approx 0,068\)</span>.</td>
+<td><strong>Bom</strong></td>
 </tr>
 </tbody>
 </table>
@@ -1341,10 +1341,10 @@
 </ul>
 </li>
 <li><strong>Q2.2: A interface do utilizador está construída seguindo as diretrizes de acessibilidade web?</strong><ul>
-<li><strong>Resposta:</strong> Não. Componentes essenciais de navegação e perfil carecem de marcações HTML estruturais, impedindo a navegação correta por tecnologias assistivas.</li>
+<li><strong>Resposta:</strong> Majoritariamente sim. A métrica M2.3 (<span class="arithmatex">\(0,068\)</span>) posiciona o projeto no nível <em>Bom</em>, indicando que a falha estrutural não é sistémica. Ainda assim, persistem violações pontuais e concretas em 3 dos 44 componentes Vue (<code>UserProfile.vue</code>, <code>ListItem.vue</code> e <code>Header-Message.vue</code>), que carecem de associação correta entre rótulos e campos de formulário.</li>
 </ul>
 </li>
-<li><strong>Conclusão do Objetivo G2:</strong> O Objetivo de garantir a manutenibilidade foi parcialmente atingido, possuindo ressalvas graves quanto à acessibilidade e à complexidade lógica das vistas principais.</li>
+<li><strong>Conclusão do Objetivo G2:</strong> O Objetivo de garantir a manutenibilidade foi parcialmente atingido. A acessibilidade estrutural do <em>frontend</em> está predominantemente em conformidade, restando apenas ressalvas pontuais em 3 componentes; a ressalva mais grave permanece a alta complexidade lógica concentrada nas vistas principais de formulário.</li>
 </ul>
 <h3 id="23-confirmacao-e-refutacao-das-hipoteses">2.3. Confirmação e Refutação das Hipóteses</h3>
 <p>Com base nas respostas às questões acima e nos dados analisados, é possível confirmar ou refutar formalmente as hipóteses levantadas na Fase 2:</p>
@@ -1352,12 +1352,12 @@
 <li><strong>H1.1 (Confirmada):</strong> Os dados da métrica M1.1 (OWASP ZAP) comprovaram a ausência de vulnerabilidades críticas de injeção, atestando em contrapartida os alertas de nível médio referentes à falta de cabeçalhos essenciais de proteção (ausência de CSP e configurações brandas de CORS).</li>
 <li><strong>H1.2 (Confirmada):</strong> Os dados da métrica M1.2 (SonarCloud) constataram a presença de credenciais sensíveis fixadas no código-fonte, evidenciadas pelas senhas nos arquivos de teste (<code>test_views.py</code> e <code>test_models.py</code>) e chaves vazadas (<code>localhost.key</code>).</li>
 <li><strong>H2.1 (Confirmada):</strong> As medições M2.1 e M2.2 atestaram uma dívida técnica geral que não é alarmante (2270 minutos), mas identificaram alta complexidade cognitiva concentrada nos principais formulários em Vue (<code>Form-Found.vue</code> e <code>Form-Lost.vue</code>), que superam o limiar tolerável.</li>
-<li><strong>H2.2 (Confirmada):</strong> A métrica M2.3 validou as falhas esperadas de estruturação HTML, revelando ausência de vinculação adequada de <em>labels</em> (regra <code>Web:S6853</code>) e comprometendo a acessibilidade no <em>frontend</em>.</li>
+<li><strong>H2.2 (Parcialmente Confirmada):</strong> A métrica M2.3 (<span class="arithmatex">\(3/44 \approx 0,068\)</span>, nível <em>Bom</em>) confirma a existência pontual da falha de estruturação HTML prevista — ausência de vinculação adequada de <em>labels</em> (regra <code>Web:S6853</code>) em <code>UserProfile.vue</code>, <code>ListItem.vue</code> e <code>Header-Message.vue</code> — mas refuta o caráter sistémico antecipado pela hipótese, já que apenas 6,8% dos componentes Vue analisados apresentam essa deficiência.</li>
 </ul>
 <h2 id="3-coerencia-com-o-proposito-da-avaliacao-f4-c4">3. Coerência com o Propósito da Avaliação (F4-C4)</h2>
 <p>O julgamento da qualidade reflete diretamente o Propósito da Avaliação estabelecido na Fase 1.</p>
 <p>Primeiramente, a falha na segurança (exposição de senhas e falta de cabeçalhos de proteção) afeta drasticamente a conformidade com a legislação de proteção de dados (LGPD). Como o AcheiUnB lida com dados que identificam estudantes da universidade e os seus pertences, a vulnerabilidade atual coloca em risco a privacidade da comunidade académica.</p>
-<p>Em segundo lugar, as falhas de manutenibilidade (alta complexidade cognitiva em formulários) colidem com a realidade do desenvolvimento de software em ambiente universitário. Como a equipa de desenvolvimento é renovada a cada semestre letivo, um código com funções de altíssima complexidade e sem padronização de acessibilidade criará uma barreira de entrada severa para os próximos alunos, elevando o tempo de integração e paralisando a adição de novas funcionalidades.</p>
+<p>Em segundo lugar, as falhas de manutenibilidade (alta complexidade cognitiva em formulários) colidem com a realidade do desenvolvimento de software em ambiente universitário. Como a equipa de desenvolvimento é renovada a cada semestre letivo, um código com funções de altíssima complexidade criará uma barreira de entrada severa para os próximos alunos, elevando o tempo de integração e paralisando a adição de novas funcionalidades — ainda que a estruturação de acessibilidade do <em>frontend</em> esteja, de forma geral, dentro do padrão aceitável, restando apenas ajustes pontuais.</p>
 <h2 id="4-julgamento-final-e-plano-de-acao-recomendado-f4-c5">4. Julgamento Final e Plano de Ação Recomendado (F4-C5)</h2>
 <p>O software AcheiUnB recebe o julgamento final de <strong>Insuficiente no Foco de Segurança</strong> e <strong>Satisfatório com Ressalvas no Foco de Manutenibilidade</strong>.</p>
 <p>Para que o projeto atinja o padrão exigido de engenharia de software e esteja apto para adoção em produção, as seguintes ações concretas são recomendadas aos mantenedores do repositório:</p>
@@ -1365,7 +1365,7 @@
 <li><strong>Saneamento de Segredos (Urgente):</strong> Remover imediatamente o ficheiro <code>localhost.key</code> do controlo de versões e substituir todas as senhas em texto claro localizadas nos ficheiros <code>test_views.py</code> e <code>test_models.py</code> por injeção de variáveis de ambiente (<code>.env</code>) ou bibliotecas de simulação de objetos.</li>
 <li><strong>Refatoração de Frontend:</strong> Modularizar o código dos componentes <code>Form-Found.vue</code> e <code>Form-Lost.vue</code>. As funções que atualmente atingem o grau 27 de complexidade devem ser divididas em blocos menores e de responsabilidade única, visando um limite máximo de 15 pontos de índice cognitivo.</li>
 <li><strong>Implementação de Cabeçalhos de Segurança:</strong> Configurar os <em>middlewares</em> do Django (backend) para forçar a entrega dos cabeçalhos HTTP necessários para mitigar os alertas do ZAP: <code>Content-Security-Policy</code>, <code>X-Frame-Options</code> e restringir rigorosamente a diretiva <code>Access-Control-Allow-Origin</code>.</li>
-<li><strong>Correção de Acessibilidade:</strong> Rever a estrutura de todos os formulários da aplicação no repositório <em>fork</em> e posterior <em>upstream</em>, adicionando os atributos <code>alt</code> ausentes e associando corretamente as <em>tags</em> <code>&lt;label&gt;</code> aos seus respetivos <em>inputs</em>.</li>
+<li><strong>Correção de Acessibilidade:</strong> Rever a estrutura dos 3 componentes identificados com falha (<code>UserProfile.vue</code>, <code>ListItem.vue</code> e <code>Header-Message.vue</code>) no repositório <em>fork</em> e posterior <em>upstream</em>, associando corretamente as <em>tags</em> <code>&lt;label&gt;</code> aos seus respetivos <em>inputs</em>; manter o padrão já adequado nos demais 41 componentes Vue como referência.</li>
 </ol>
 <hr />
 <h2 id="5-historico-de-versoes">5. Histórico de Versões</h2>
@@ -1396,6 +1396,12 @@
 <td>Adição da subseção 2.3 com a confirmação e refutação das hipóteses H1.1, H1.2, H2.1 e H2.2 com base nas métricas analisadas.</td>
 <td>20/06/2026</td>
 <td><a href="https://github.com/samuelncaetano">Samuel Caetano</a></td>
+</tr>
+<tr>
+<td><code>0.4</code></td>
+<td>Cálculo de M2.2 (0,167 min/LOC, com base em 13.581 LOC via API do SonarCloud) e M2.3 (0,068, com base em 44 ficheiros <code>.vue</code> analisados), com correção do nível de M2.3 para <em>Bom</em> e ajuste da resposta a Q2.2, da hipótese H2.2 e do texto de coerência e plano de ação.</td>
+<td>22/06/2026</td>
+<td><a href="https://github.com/luizfaria1989">Luiz</a></td>
 </tr>
 </tbody>
 </table>
