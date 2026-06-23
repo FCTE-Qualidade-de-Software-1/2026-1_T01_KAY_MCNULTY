@@ -11,8 +11,8 @@ Os dados extraídos foram tabulados e calculados com base nas fórmulas estabele
 | **M1.1 (Alertas ZAP Médio/Alto)** | Foram identificados 3 alertas de severidade Média (*CORS Misconfiguration*, ausência de *CSP* e de *Anti-clickjacking*), distribuídos de forma sistémica e cobrindo os *endpoints* avaliados. Densidade: $0,27$.   | **Insuficiente** ($> 0,15$)      |
 | **M1.2 (Blockers de Segurança)**  | A exportação da API do SonarCloud confirmou a deteção de chaves privadas (`localhost.key`) e credenciais expostas nos ficheiros de teste (`test_views.py` e `test_models.py`). Quantidade: $> 0$.                  | **Insuficiente** ($> 0$)         |
 | **M2.1 (Módulos Complexos)**      | Identificaram-se 3 módulos ultrapassando o limite (15) de Complexidade Cognitiva: `Form-Found.vue` (27), `Form-Lost.vue` (27) e `Chats.vue` (19).                                                                  | **Satisfatório** (3 a 5 módulos) |
-| **M2.2 (Dívida Técnica Total)**   | O atributo de esforço extraído automaticamente (`effortTotal`) indica 2270 minutos (aproximadamente 37,8 horas). Considerando o volume de linhas de código do projeto, a densidade encontra-se na faixa aceitável. | **Bom**                          |
-| **M2.3 (Acessibilidade HTML)**    | Constatou-se ausência de *labels* adequadas (violação da regra `Web:S6853`) em 3 ficheiros críticos de interface: `UserProfile.vue`, `ListItem.vue` e `Header-Message.vue`.                                        | **Insuficiente**                 |
+| **M2.2 (Dívida Técnica Total)**   | O atributo de esforço extraído automaticamente (`effortTotal`) indica 2270 minutos (aproximadamente 37,8 horas) de débito técnico. Com base no total de 13.581 linhas de código (`ncloc`) do projeto, extraído da API do SonarCloud, a densidade calculada é $2270 / 13581 \approx 0,167$ min/LOC. | **Bom**                          |
+| **M2.3 (Acessibilidade HTML)**    | Constatou-se ausência de *labels* adequadas (violação da regra `Web:S6853`) em 3 dos 44 ficheiros `.vue` analisados pelo SonarCloud: `UserProfile.vue`, `ListItem.vue` e `Header-Message.vue`. A proporção calculada é $3 / 44 \approx 0,068$.                                        | **Bom**                 |
 
 ## 2. Respostas às Questões e Objetivos GQM (F4-C3)
 
@@ -31,8 +31,8 @@ Com base nas métricas avaliadas, as perguntas operacionais formuladas na Fase 2
 - **Q2.1: A arquitetura e a escrita dos módulos facilitam a compreensão e a modificação?**
 	- **Resposta:** Parcialmente. Embora a dívida técnica global não seja alarmante (2270 minutos), o *frontend* possui gargalos severos de legibilidade. Componentes principais de formulário concentram carga cognitiva altíssima (índice 27), prejudicando o entendimento do fluxo de dados por novos membros da equipa.
 - **Q2.2: A interface do utilizador está construída seguindo as diretrizes de acessibilidade web?**
-	- **Resposta:** Não. Componentes essenciais de navegação e perfil carecem de marcações HTML estruturais, impedindo a navegação correta por tecnologias assistivas.
-- **Conclusão do Objetivo G2:** O Objetivo de garantir a manutenibilidade foi parcialmente atingido, possuindo ressalvas graves quanto à acessibilidade e à complexidade lógica das vistas principais.
+	- **Resposta:** Majoritariamente sim. A métrica M2.3 ($0,068$) posiciona o projeto no nível *Bom*, indicando que a falha estrutural não é sistémica. Ainda assim, persistem violações pontuais e concretas em 3 dos 44 componentes Vue (`UserProfile.vue`, `ListItem.vue` e `Header-Message.vue`), que carecem de associação correta entre rótulos e campos de formulário.
+- **Conclusão do Objetivo G2:** O Objetivo de garantir a manutenibilidade foi parcialmente atingido. A acessibilidade estrutural do *frontend* está predominantemente em conformidade, restando apenas ressalvas pontuais em 3 componentes; a ressalva mais grave permanece a alta complexidade lógica concentrada nas vistas principais de formulário.
 
 ### 2.3. Confirmação e Refutação das Hipóteses
 
@@ -41,7 +41,7 @@ Com base nas respostas às questões acima e nos dados analisados, é possível 
 - **H1.1 (Confirmada):** Os dados da métrica M1.1 (OWASP ZAP) comprovaram a ausência de vulnerabilidades críticas de injeção, atestando em contrapartida os alertas de nível médio referentes à falta de cabeçalhos essenciais de proteção (ausência de CSP e configurações brandas de CORS).
 - **H1.2 (Confirmada):** Os dados da métrica M1.2 (SonarCloud) constataram a presença de credenciais sensíveis fixadas no código-fonte, evidenciadas pelas senhas nos arquivos de teste (`test_views.py` e `test_models.py`) e chaves vazadas (`localhost.key`).
 - **H2.1 (Confirmada):** As medições M2.1 e M2.2 atestaram uma dívida técnica geral que não é alarmante (2270 minutos), mas identificaram alta complexidade cognitiva concentrada nos principais formulários em Vue (`Form-Found.vue` e `Form-Lost.vue`), que superam o limiar tolerável.
-- **H2.2 (Confirmada):** A métrica M2.3 validou as falhas esperadas de estruturação HTML, revelando ausência de vinculação adequada de *labels* (regra `Web:S6853`) e comprometendo a acessibilidade no *frontend*.
+- **H2.2 (Parcialmente Confirmada):** A métrica M2.3 ($3/44 \approx 0,068$, nível *Bom*) confirma a existência pontual da falha de estruturação HTML prevista — ausência de vinculação adequada de *labels* (regra `Web:S6853`) em `UserProfile.vue`, `ListItem.vue` e `Header-Message.vue` — mas refuta o caráter sistémico antecipado pela hipótese, já que apenas 6,8% dos componentes Vue analisados apresentam essa deficiência.
 
 ## 3. Coerência com o Propósito da Avaliação (F4-C4)
 
@@ -49,7 +49,7 @@ O julgamento da qualidade reflete diretamente o Propósito da Avaliação estabe
 
 Primeiramente, a falha na segurança (exposição de senhas e falta de cabeçalhos de proteção) afeta drasticamente a conformidade com a legislação de proteção de dados (LGPD). Como o AcheiUnB lida com dados que identificam estudantes da universidade e os seus pertences, a vulnerabilidade atual coloca em risco a privacidade da comunidade académica.
 
-Em segundo lugar, as falhas de manutenibilidade (alta complexidade cognitiva em formulários) colidem com a realidade do desenvolvimento de software em ambiente universitário. Como a equipa de desenvolvimento é renovada a cada semestre letivo, um código com funções de altíssima complexidade e sem padronização de acessibilidade criará uma barreira de entrada severa para os próximos alunos, elevando o tempo de integração e paralisando a adição de novas funcionalidades.
+Em segundo lugar, as falhas de manutenibilidade (alta complexidade cognitiva em formulários) colidem com a realidade do desenvolvimento de software em ambiente universitário. Como a equipa de desenvolvimento é renovada a cada semestre letivo, um código com funções de altíssima complexidade criará uma barreira de entrada severa para os próximos alunos, elevando o tempo de integração e paralisando a adição de novas funcionalidades — ainda que a estruturação de acessibilidade do *frontend* esteja, de forma geral, dentro do padrão aceitável, restando apenas ajustes pontuais.
 
 ## 4. Julgamento Final e Plano de Ação Recomendado (F4-C5)
 
@@ -60,7 +60,7 @@ Para que o projeto atinja o padrão exigido de engenharia de software e esteja a
 1. **Saneamento de Segredos (Urgente):** Remover imediatamente o ficheiro `localhost.key` do controlo de versões e substituir todas as senhas em texto claro localizadas nos ficheiros `test_views.py` e `test_models.py` por injeção de variáveis de ambiente (`.env`) ou bibliotecas de simulação de objetos.
 2. **Refatoração de Frontend:** Modularizar o código dos componentes `Form-Found.vue` e `Form-Lost.vue`. As funções que atualmente atingem o grau 27 de complexidade devem ser divididas em blocos menores e de responsabilidade única, visando um limite máximo de 15 pontos de índice cognitivo.
 3. **Implementação de Cabeçalhos de Segurança:** Configurar os *middlewares* do Django (backend) para forçar a entrega dos cabeçalhos HTTP necessários para mitigar os alertas do ZAP: `Content-Security-Policy`, `X-Frame-Options` e restringir rigorosamente a diretiva `Access-Control-Allow-Origin`.
-4. **Correção de Acessibilidade:** Rever a estrutura de todos os formulários da aplicação no repositório *fork* e posterior *upstream*, adicionando os atributos `alt` ausentes e associando corretamente as *tags* `<label>` aos seus respetivos *inputs*.
+4. **Correção de Acessibilidade:** Rever a estrutura dos 3 componentes identificados com falha (`UserProfile.vue`, `ListItem.vue` e `Header-Message.vue`) no repositório *fork* e posterior *upstream*, associando corretamente as *tags* `<label>` aos seus respetivos *inputs*; manter o padrão já adequado nos demais 41 componentes Vue como referência.
 
 ---
 
@@ -71,3 +71,4 @@ Para que o projeto atinja o padrão exigido de engenharia de software e esteja a
 | `0.1`  | Análise dos resultados brutos das métricas (M1.1 a M2.3) servindo de base para o documento.                                                                                                                                                                                                                             | 05/06/2026 | [Samuel Caetano](https://github.com/samuelncaetano)                    |
 | `0.2`  | Criação do documento `analise-resultados.md` na estrutura do MkDocs, redação das respostas formais ao GQM, da conexão com o propósito da Fase 1, do julgamento final e do plano de ação, revisão e aprovação do conteúdo como responsável pelo escopo, correção de encoding e adição da tabela de Histórico de Versões. | 07/06/2026 | [João Pedro Rodrigues Gomes da Silva](https://github.com/JpRodrigues2) |
 | `0.3`  | Adição da subseção 2.3 com a confirmação e refutação das hipóteses H1.1, H1.2, H2.1 e H2.2 com base nas métricas analisadas.                                                                                                                                                                                            | 20/06/2026 | [Samuel Caetano](https://github.com/samuelncaetano)                    |
+| `0.4`  | Cálculo de M2.2 (0,167 min/LOC, com base em 13.581 LOC via API do SonarCloud) e M2.3 (0,068, com base em 44 ficheiros `.vue` analisados), com correção do nível de M2.3 para *Bom* e ajuste da resposta a Q2.2, da hipótese H2.2 e do texto de coerência e plano de ação.                       | 22/06/2026 | [Luiz](https://github.com/luizfaria1989)                               |
