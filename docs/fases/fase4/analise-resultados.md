@@ -45,11 +45,17 @@ Com base nas respostas às questões acima e nos dados analisados, é possível 
 
 ## 3. Coerência com o Propósito da Avaliação (F4-C4)
 
-O julgamento da qualidade reflete diretamente o Propósito da Avaliação estabelecido na Fase 1.
+O propósito específico declarado na Fase 1 foi:
 
-Primeiramente, a falha na segurança (exposição de senhas e falta de cabeçalhos de proteção) afeta drasticamente a conformidade com a legislação de proteção de dados (LGPD). Como o AcheiUnB lida com dados que identificam estudantes da universidade e os seus pertences, a vulnerabilidade atual coloca em risco a privacidade da comunidade académica.
+> *"Determinar o nível de qualidade e a resiliência arquitetural do sistema AcheiUnB nas dimensões críticas de Segurança e Manutenibilidade."*
 
-Em segundo lugar, as falhas de manutenibilidade (alta complexidade cognitiva em formulários) colidem com a realidade do desenvolvimento de software em ambiente universitário. Como a equipa de desenvolvimento é renovada a cada semestre letivo, um código com funções de altíssima complexidade criará uma barreira de entrada severa para os próximos alunos, elevando o tempo de integração e paralisando a adição de novas funcionalidades — ainda que a estruturação de acessibilidade do *frontend* esteja, de forma geral, dentro do padrão aceitável, restando apenas ajustes pontuais.
+Os resultados desta fase respondem diretamente a esse propósito:
+
+**Segurança:** o propósito era identificar se o sistema protege dados acadêmicos sensíveis e resiste a ataques. Os dados obtidos confirmam que **não** — M1.1 (densidade de alertas ZAP = 0,27) e M1.2 (BLOCKERs de segredos > 0) atingiram nível Insuficiente. A decisão recomendada ao requisitante (equipe de desenvolvimento e UnB) é a remediação imediata: sanitizar credenciais expostas e configurar os cabeçalhos HTTP exigidos pela LGPD antes de qualquer evolução funcional do sistema.
+
+**Manutenibilidade:** o propósito era verificar se o código suporta a alta rotatividade de desenvolvedores em ambiente acadêmico. Os dados mostram resultado parcial — M2.2 (dívida técnica = 0,167 min/LOC, nível Bom) e M2.3 (acessibilidade = 0,068, nível Bom) estão dentro do padrão, mas M2.1 (3 módulos com complexidade cognitiva > 15) indica gargalos concretos nos componentes mais críticos do fluxo de cadastro. A decisão recomendada é a refatoração dos componentes `Form-Found.vue` e `Form-Lost.vue` antes que uma nova equipe assuma o projeto no semestre seguinte.
+
+Em síntese: os resultados desta avaliação fornecem ao requisitante um diagnóstico auditável e rastreável, com evidências suficientes para priorizar as ações de remediação antes da próxima entrega do sistema à comunidade acadêmica da UnB.
 
 ## 4. Julgamento Final e Plano de Ação Recomendado (F4-C5)
 
