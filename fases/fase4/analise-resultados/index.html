@@ -308,7 +308,7 @@
           
   
   
-  EU2 - Fase 4
+  EU3 - Fase 4
 
         </a>
       </li>
@@ -886,7 +886,7 @@
   <span class="md-ellipsis">
     
   
-    EU2 - Fase 4
+    EU3 - Fase 4
   
 
     
@@ -902,7 +902,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    EU2 - Fase 4
+    EU3 - Fase 4
   
 
           </label>
@@ -1355,9 +1355,14 @@
 <li><strong>H2.2 (Parcialmente Confirmada):</strong> A métrica M2.3 (<span class="arithmatex">\(3/44 \approx 0,068\)</span>, nível <em>Bom</em>) confirma a existência pontual da falha de estruturação HTML prevista — ausência de vinculação adequada de <em>labels</em> (regra <code>Web:S6853</code>) em <code>UserProfile.vue</code>, <code>ListItem.vue</code> e <code>Header-Message.vue</code> — mas refuta o caráter sistémico antecipado pela hipótese, já que apenas 6,8% dos componentes Vue analisados apresentam essa deficiência.</li>
 </ul>
 <h2 id="3-coerencia-com-o-proposito-da-avaliacao-f4-c4">3. Coerência com o Propósito da Avaliação (F4-C4)</h2>
-<p>O julgamento da qualidade reflete diretamente o Propósito da Avaliação estabelecido na Fase 1.</p>
-<p>Primeiramente, a falha na segurança (exposição de senhas e falta de cabeçalhos de proteção) afeta drasticamente a conformidade com a legislação de proteção de dados (LGPD). Como o AcheiUnB lida com dados que identificam estudantes da universidade e os seus pertences, a vulnerabilidade atual coloca em risco a privacidade da comunidade académica.</p>
-<p>Em segundo lugar, as falhas de manutenibilidade (alta complexidade cognitiva em formulários) colidem com a realidade do desenvolvimento de software em ambiente universitário. Como a equipa de desenvolvimento é renovada a cada semestre letivo, um código com funções de altíssima complexidade criará uma barreira de entrada severa para os próximos alunos, elevando o tempo de integração e paralisando a adição de novas funcionalidades — ainda que a estruturação de acessibilidade do <em>frontend</em> esteja, de forma geral, dentro do padrão aceitável, restando apenas ajustes pontuais.</p>
+<p>O propósito específico declarado na Fase 1 foi:</p>
+<blockquote>
+<p><em>"Determinar o nível de qualidade e a resiliência arquitetural do sistema AcheiUnB nas dimensões críticas de Segurança e Manutenibilidade."</em></p>
+</blockquote>
+<p>Os resultados desta fase respondem diretamente a esse propósito:</p>
+<p><strong>Segurança:</strong> o propósito era identificar se o sistema protege dados acadêmicos sensíveis e resiste a ataques. Os dados obtidos confirmam que <strong>não</strong> — M1.1 (densidade de alertas ZAP = 0,27) e M1.2 (BLOCKERs de segredos &gt; 0) atingiram nível Insuficiente. A decisão recomendada ao requisitante (equipe de desenvolvimento e UnB) é a remediação imediata: sanitizar credenciais expostas e configurar os cabeçalhos HTTP exigidos pela LGPD antes de qualquer evolução funcional do sistema.</p>
+<p><strong>Manutenibilidade:</strong> o propósito era verificar se o código suporta a alta rotatividade de desenvolvedores em ambiente acadêmico. Os dados mostram resultado parcial — M2.2 (dívida técnica = 0,167 min/LOC, nível Bom) e M2.3 (acessibilidade = 0,068, nível Bom) estão dentro do padrão, mas M2.1 (3 módulos com complexidade cognitiva &gt; 15) indica gargalos concretos nos componentes mais críticos do fluxo de cadastro. A decisão recomendada é a refatoração dos componentes <code>Form-Found.vue</code> e <code>Form-Lost.vue</code> antes que uma nova equipe assuma o projeto no semestre seguinte.</p>
+<p>Em síntese: os resultados desta avaliação fornecem ao requisitante um diagnóstico auditável e rastreável, com evidências suficientes para priorizar as ações de remediação antes da próxima entrega do sistema à comunidade acadêmica da UnB.</p>
 <h2 id="4-julgamento-final-e-plano-de-acao-recomendado-f4-c5">4. Julgamento Final e Plano de Ação Recomendado (F4-C5)</h2>
 <p>O software AcheiUnB recebe o julgamento final de <strong>Insuficiente no Foco de Segurança</strong> e <strong>Satisfatório com Ressalvas no Foco de Manutenibilidade</strong>.</p>
 <p>Para que o projeto atinja o padrão exigido de engenharia de software e esteja apto para adoção em produção, as seguintes ações concretas são recomendadas aos mantenedores do repositório:</p>
