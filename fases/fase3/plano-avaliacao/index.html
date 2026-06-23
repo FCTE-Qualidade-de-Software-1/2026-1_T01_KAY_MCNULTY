@@ -864,6 +864,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#10-pre-requisitos-do-avaliador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.0. Pré-requisitos do avaliador
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#11-rastreabilidade-entre-metricas-metodos-e-saidas-brutas" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1307,6 +1318,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#10-pre-requisitos-do-avaliador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.0. Pré-requisitos do avaliador
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#11-rastreabilidade-entre-metricas-metodos-e-saidas-brutas" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1527,6 +1549,38 @@
 </table>
 <hr />
 <h2 id="1-metodo-de-avaliacao-e-reprodutibilidade-f3-c1">1. Método de Avaliação e Reprodutibilidade (F3-C1)</h2>
+<h3 id="10-pre-requisitos-do-avaliador">1.0. Pré-requisitos do avaliador</h3>
+<p>Antes de iniciar a execução, o avaliador deve garantir que possui:</p>
+<table>
+<thead>
+<tr>
+<th>Pré-requisito</th>
+<th>Detalhe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Acesso ao repositório fork</strong></td>
+<td>Conta no GitHub com permissão para acionar workflows via <code>workflow_dispatch</code> no repositório <code>samuelncaetano/2024-2-acheiunb</code></td>
+</tr>
+<tr>
+<td><strong>Token do SonarCloud</strong></td>
+<td>Conta no SonarCloud com o projeto <code>samuelncaetano/2024-2-acheiunb</code> acessível; token gerado em <code>My Account &gt; Security &gt; Generate Token</code></td>
+</tr>
+<tr>
+<td><strong>Ambiente local</strong></td>
+<td>Git, Python 3.10+, Docker e Docker Compose instalados e funcionais</td>
+</tr>
+<tr>
+<td><strong>Variáveis de ambiente</strong></td>
+<td>Arquivo <code>.env</code> local contendo <code>SONAR_TOKEN</code>, <code>PROJECT_KEY</code>, <code>SONAR_BASE_URL</code> e <code>SONAR_ORG</code> preenchidos com os valores do projeto</td>
+</tr>
+<tr>
+<td><strong>Bibliotecas Python</strong></td>
+<td><code>requests</code> e <code>python-dotenv</code> instalados (<code>pip install requests python-dotenv</code>)</td>
+</tr>
+</tbody>
+</table>
 <h3 id="11-rastreabilidade-entre-metricas-metodos-e-saidas-brutas">1.1. Rastreabilidade entre métricas, métodos e saídas brutas</h3>
 <table>
 <thead>
@@ -1781,6 +1835,12 @@
 <td>Reorganização da Fase 3 em múltiplas páginas para melhorar a navegação e separar método, ambiente, cronograma e fechamento metodológico.</td>
 <td>12/06/2026</td>
 <td><a href="https://github.com/TiagoAntunesBalieiro">Tiago Antunes</a></td>
+</tr>
+<tr>
+<td><code>0.5</code></td>
+<td>Correção EU3: adição da seção de pré-requisitos do avaliador (1.0) para tornar o método auto-suficiente sem exigir conhecimento prévio implícito.</td>
+<td>23/06/2026</td>
+<td><a href="https://github.com/JuliaReis18">Júlia Massuda</a></td>
 </tr>
 </tbody>
 </table>

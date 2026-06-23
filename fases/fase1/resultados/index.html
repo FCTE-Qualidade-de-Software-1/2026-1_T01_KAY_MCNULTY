@@ -614,6 +614,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#30-caracteristicas-excluidas-e-justificativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.0. Características excluídas e justificativa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#31-seguranca-security" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -648,6 +659,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="4. Escopo, Profundidade e Objetivos de Avaliação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fora-do-escopo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fora do Escopo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1314,6 +1342,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#30-caracteristicas-excluidas-e-justificativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.0. Características excluídas e justificativa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#31-seguranca-security" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1348,6 +1387,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="4. Escopo, Profundidade e Objetivos de Avaliação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fora-do-escopo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fora do Escopo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1437,28 +1493,34 @@
 <tr>
 <th>Parte Interessada</th>
 <th>Papel e Necessidades</th>
+<th>Influência na Priorização da Avaliação</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>Equipe de Qualidade (Requisitante)</strong></td>
 <td>Através da disciplina de Qualidade de Software, audita o sistema exigindo métricas rigorosas baseadas na ISO/IEC 25010.</td>
+<td>Define o escopo e as características avaliadas; exige dados auditáveis e rastreáveis no repositório.</td>
 </tr>
 <tr>
 <td><strong>Universidade de Brasília (Cliente)</strong></td>
 <td>Instituição que se beneficia do sistema para otimizar o fluxo de itens perdidos; exige respeito rigoroso à proteção de dados (LGPD).</td>
+<td>Justifica a prioridade <strong>Alta</strong> de Segurança: o sistema processa dados pessoais sujeitos à LGPD.</td>
 </tr>
 <tr>
 <td><strong>Mantenedores e Comunidade (Fornecedores/Desenvolvedores)</strong></td>
 <td>Desenvolvedores atuando em ambiente acadêmico/Open Source; precisam de código limpo e infraestrutura modular.</td>
+<td>Justifica a prioridade <strong>Alta</strong> de Manutenibilidade: alta rotatividade exige código compreensível a cada semestre.</td>
 </tr>
 <tr>
 <td><strong>Segurança e Recepção da UnB (Operadores)</strong></td>
 <td>Funcionários da universidade que registram e gerenciam os itens físicos através do painel do sistema.</td>
+<td>Reforça a necessidade de disponibilidade contínua do sistema e ausência de falhas críticas de acesso.</td>
 </tr>
 <tr>
 <td><strong>Comunidade Acadêmica (Usuários Finais)</strong></td>
 <td>Estudantes e servidores que interagem com o sistema e trocam mensagens via chat.</td>
+<td>Justifica a inclusão de acessibilidade no escopo de Manutenibilidade (G2), garantindo uso por todos os perfis.</td>
 </tr>
 </tbody>
 </table>
@@ -1538,6 +1600,38 @@
 <p>Conforme exigido pelas premissas iniciais do projeto, a avaliação concentra-se exclusivamente em características <strong>intrínsecas</strong> e <strong>internas</strong> do código.</p>
 <p><img alt="Modelo de Qualidade ISO/IEC 25010 Adaptado para o AcheiUnB" src="../../../img/modelo-iso.jpg" /></p>
 <p><em>Figura 2: Adaptação do Modelo ISO/IEC 25010. As características em destaque (verde) representam o escopo da avaliação atual. As demais foram suprimidas pontualmente para focar nas necessidades mais críticas dos stakeholders e na segurança dos dados (LGPD).</em></p>
+<h4 id="30-caracteristicas-excluidas-e-justificativa"><strong>3.0. Características excluídas e justificativa</strong></h4>
+<p>A adaptação do modelo ISO/IEC 25010 ao contexto do AcheiUnB implicou na exclusão deliberada de características não aplicáveis ou inviáveis neste ciclo de avaliação:</p>
+<table>
+<thead>
+<tr>
+<th>Característica ISO/IEC 25010</th>
+<th>Motivo da exclusão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Usabilidade</strong></td>
+<td>Excluída por orientação expressa da disciplina.</td>
+</tr>
+<tr>
+<td><strong>Desempenho e Eficiência</strong></td>
+<td>O sistema não possui SLA formal; o ambiente Docker/Celery em máquina local inviabiliza medições de tempo reproduzíveis.</td>
+</tr>
+<tr>
+<td><strong>Compatibilidade</strong></td>
+<td>O AcheiUnB não possui integrações externas a auditar neste ciclo; roda exclusivamente como aplicação web.</td>
+</tr>
+<tr>
+<td><strong>Portabilidade</strong></td>
+<td>O sistema opera exclusivamente em ambiente conteinerizado (Docker) sem variação de plataforma prevista.</td>
+</tr>
+<tr>
+<td><strong>Confiabilidade</strong></td>
+<td>Não há histórico de incidentes em produção disponível para cálculo de métricas como MTBF ou taxa de falha.</td>
+</tr>
+</tbody>
+</table>
 <h4 id="31-seguranca-security"><strong>3.1. Segurança (<em>Security</em>)</strong></h4>
 <ul>
 <li>
@@ -1689,6 +1783,16 @@
 <li>Código espaguete no <em>frontend</em>.</li>
 </ul>
 </li>
+</ul>
+<h4 id="fora-do-escopo"><strong>Fora do Escopo</strong></h4>
+<p>As seguintes dimensões foram deliberadamente excluídas, com justificativa:</p>
+<ul>
+<li><strong>Testes funcionais e de aceitação:</strong> estão além do propósito desta avaliação, que foca em atributos intrínsecos do produto (segurança e manutenibilidade do código).</li>
+<li><strong>Métricas de desempenho (tempo de resposta, throughput):</strong> o ambiente acadêmico local não garante condições controladas para medições válidas e reproduzíveis.</li>
+<li><strong>Análise do banco de dados PostgreSQL:</strong> o escopo limitou-se ao código-fonte e à camada de apresentação, onde os riscos são mais críticos e mensuráveis com SAST/DAST.</li>
+<li>
+<p><strong>Cobertura de testes automatizados:</strong> não há pipeline de testes configurado no repositório que permita medir esta subcaracterística de forma auditável.</p>
+</li>
 <li>
 <p><strong>Relação com Avaliações Futuras e Plano de Ação:</strong> O sucesso desta etapa dita as prioridades imediatas do projeto.</p>
 </li>
@@ -1727,19 +1831,25 @@
 <h4 id="51-ods-12-consumo-e-producao-responsaveis"><strong>5.1. ODS 12 - Consumo e Produção Responsáveis</strong></h4>
 <ul>
 <li>
-<p><strong>Justificativa:</strong> Ao facilitar o encontro e a devolução de itens perdidos na universidade, a ferramenta incentiva a economia circular, reduzindo a necessidade de os estudantes substituírem ou comprarem novos produtos desnecessariamente.</p>
+<p><strong>Justificativa:</strong> O AcheiUnB viabiliza o retorno de pertences perdidos a seus donos, reduzindo o descarte prematuro de bens e a compra de substitutos desnecessários. Um sistema com falhas críticas de segurança — como as identificadas nesta avaliação (M1.2 = Insuficiente, credenciais expostas) — que force o sistema a ficar fora do ar ou seja comprometido interrompe diretamente esse ciclo de devolução, gerando impacto real no consumo.</p>
 </li>
 <li>
-<p><strong>Indicador Relacionado:</strong> Meta 12.5 (Reduzir substancialmente a geração de resíduos por meio da prevenção, redução, reciclagem e reuso).</p>
+<p><strong>Meta:</strong> 12.5 — <em>Reduzir substancialmente a geração de resíduos por meio da prevenção, redução, reciclagem e reuso.</em></p>
+</li>
+<li>
+<p><strong>Indicador aplicado à avaliação:</strong> A avaliação de Segurança e Manutenibilidade garante que o sistema permaneça operacional e confiável a longo prazo, condição necessária para que o ciclo de devolução de itens funcione continuamente. As ações recomendadas na Fase 4 (saneamento de credenciais e redução de complexidade cognitiva) contribuem diretamente para a sustentabilidade operacional do sistema.</p>
 </li>
 </ul>
 <h4 id="52-ods-16-paz-justica-e-instituicoes-eficazes"><strong>5.2. ODS 16 - Paz, Justiça e Instituições Eficazes</strong></h4>
 <ul>
 <li>
-<p><strong>Justificativa:</strong> Ao auditar proativamente (via SonarCloud e ZAP) o vazamento de chaves privadas e ausência de Security Headers, o software protege a privacidade e os dados de localização acadêmica, promovendo um ambiente digital seguro para a instituição.</p>
+<p><strong>Justificativa:</strong> O AcheiUnB processa dados pessoais de identificação de estudantes e servidores da UnB, sujeitos à LGPD. A auditoria realizada nesta avaliação — identificando credenciais expostas nos arquivos de teste (<code>test_views.py</code>, <code>test_models.py</code>) e ausência de cabeçalhos de proteção HTTP — evidencia não-conformidades que comprometem a responsabilidade institucional da UnB no tratamento de dados pessoais.</p>
 </li>
 <li>
-<p><strong>Indicador Relacionado:</strong> Meta 16.6 (Desenvolver instituições eficazes, responsáveis e transparentes em todos os níveis).</p>
+<p><strong>Meta:</strong> 16.10 — <em>Assegurar o acesso público à informação e proteger as liberdades fundamentais, em conformidade com a legislação nacional e os acordos internacionais.</em></p>
+</li>
+<li>
+<p><strong>Indicador aplicado à avaliação:</strong> A métrica M1.2 (BLOCKERs de segurança &gt; 0, nível Insuficiente) e M1.1 (densidade de alertas DAST = 0,27, nível Insuficiente) evidenciam que o sistema, no estado avaliado, não atende ao padrão mínimo de proteção de dados exigido para uma instituição pública eficaz. O plano de ação da Fase 4 direciona as correções necessárias para alinhar o sistema à meta 16.10.</p>
 </li>
 </ul>
 <hr />
@@ -1777,6 +1887,12 @@
 <td>Adição das imagens em Resultados Esperados da Fase 1</td>
 <td>13/05/2026</td>
 <td><a href="https://github.com/Marjoriemitzi">Marjorie Mitzi</a></td>
+</tr>
+<tr>
+<td><code>0.5</code></td>
+<td>Correções EU3: coluna de influência na tabela de stakeholders, tabela de características excluídas do modelo ISO, seção "Fora do Escopo" e reforço dos indicadores ODS com métricas da Fase 4.</td>
+<td>23/06/2026</td>
+<td><a href="https://github.com/JuliaReis18">Júlia Massuda</a></td>
 </tr>
 </tbody>
 </table>

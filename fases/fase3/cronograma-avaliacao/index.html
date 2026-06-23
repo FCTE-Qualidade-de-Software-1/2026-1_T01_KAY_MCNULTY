@@ -1240,8 +1240,62 @@
 </table>
 <hr />
 <h2 id="2-consistencia-entre-as-fases-2-e-3-f3-c8">2. Consistência entre as Fases 2 e 3 (F3-C8)</h2>
-<p>O método definido nesta fase é diretamente coerente com as métricas, níveis de pontuação e critérios de julgamento da Fase 2. A métrica <strong>M1.1</strong> depende de alertas observáveis em execução, por isso o uso de <strong>OWASP ZAP</strong> como método DAST é o mais adequado para identificar falhas como ausência de cabeçalhos HTTP e problemas de exposição externa. Já as métricas <strong>M1.2</strong>, <strong>M2.1</strong>, <strong>M2.2</strong> e <strong>M2.3</strong> dependem de severidade de issue, regra aplicada, complexidade cognitiva e dívida técnica calculadas sobre a base de código, o que torna o <strong>SonarCloud</strong> a fonte coerente para essas medições.</p>
-<p>Além disso, a escolha de <strong>GitHub Actions</strong> para a varredura dinâmica e de um <strong>script parametrizado</strong> para extração da API do SonarCloud reforça a reprodutibilidade, a auditabilidade e a aderência direta às evidências que deverão ser registradas na Fase 4. Em vez de depender de observações manuais ou interpretação subjetiva, o plano privilegia mecanismos automatizados e saídas brutas versionáveis, o que sustenta a rastreabilidade entre a definição conceitual da Fase 2, a execução da Fase 4 e o julgamento final do produto avaliado.</p>
+<p>A tabela abaixo demonstra a rastreabilidade direta entre cada métrica definida na Fase 2 e o método, ferramenta, critério de julgamento e saída bruta especificados nesta Fase 3:</p>
+<table>
+<thead>
+<tr>
+<th>Métrica (Fase 2)</th>
+<th>Questão GQM</th>
+<th>Método (Fase 3)</th>
+<th>Ferramenta</th>
+<th>Critério de Julgamento (Fase 2)</th>
+<th>Saída bruta (Fase 4)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>M1.1</strong> Densidade de alertas DAST (Médio/Alto)</td>
+<td>Q1.1</td>
+<td>DAST via GitHub Actions (<code>workflow_dispatch</code>)</td>
+<td>OWASP ZAP <code>action-full-scan@v0.12.0</code></td>
+<td>Excelente ≤ 0,00 · Bom 0,01–0,05 · Satisfatório 0,06–0,15 · <strong>Insuficiente &gt; 0,15</strong></td>
+<td><code>zap_report_fase1.html</code></td>
+</tr>
+<tr>
+<td><strong>M1.2</strong> BLOCKERs de segurança</td>
+<td>Q1.2</td>
+<td>SAST via script <code>extrator_sonar.py</code></td>
+<td>SonarCloud API (<code>/api/issues/search</code>)</td>
+<td><strong>Qualquer valor &gt; 0 = Insuficiente</strong> (tolerância zero)</td>
+<td><code>sonar_issues_fase1.json</code></td>
+</tr>
+<tr>
+<td><strong>M2.1</strong> Módulos com complexidade cognitiva &gt; 15</td>
+<td>Q2.1</td>
+<td>SAST via script <code>extrator_sonar.py</code></td>
+<td>SonarCloud API</td>
+<td>Excelente = 0 · Bom 1–2 · Satisfatório 3–5 · Insuficiente &gt; 5</td>
+<td><code>sonar_issues_fase1.json</code></td>
+</tr>
+<tr>
+<td><strong>M2.2</strong> Densidade de dívida técnica (min/LOC)</td>
+<td>Q2.1</td>
+<td>SAST via script <code>extrator_sonar.py</code> (<code>effortTotal</code> / <code>ncloc</code>)</td>
+<td>SonarCloud API</td>
+<td>Excelente ≤ 0,10 · <strong>Bom 0,11–0,25</strong> · Satisfatório 0,26–0,50 · Insuficiente &gt; 0,50</td>
+<td><code>sonar_issues_fase1.json</code></td>
+</tr>
+<tr>
+<td><strong>M2.3</strong> Proporção de componentes Vue com falha de acessibilidade</td>
+<td>Q2.2</td>
+<td>SAST via script <code>extrator_sonar.py</code> (regra <code>Web:S6853</code>)</td>
+<td>SonarCloud API</td>
+<td>Excelente = 0,00 · <strong>Bom 0,01–0,10</strong> · Satisfatório 0,11–0,25 · Insuficiente &gt; 0,25</td>
+<td><code>sonar_issues_fase1.json</code></td>
+</tr>
+</tbody>
+</table>
+<p>A escolha de <strong>GitHub Actions</strong> para o DAST e de um <strong>script parametrizado</strong> para o SAST foi diretamente motivada pelos critérios de julgamento da Fase 2, que exigem dados auditáveis e reproduzíveis: mecanismos automatizados eliminam variação humana na coleta e geram saídas brutas versionáveis, garantindo que os resultados da Fase 4 possam ser verificados por qualquer avaliador externo.</p>
 <hr />
 <h2 id="3-referencias-bibliograficas">3. Referências Bibliográficas</h2>
 <ol>
@@ -1275,6 +1329,12 @@
 <td>Consolidação da consistência metodológica e das referências bibliográficas nesta segunda página da Fase 3.</td>
 <td>09/06/2026</td>
 <td><a href="https://github.com/TiagoAntunesBalieiro">Tiago Antunes</a></td>
+</tr>
+<tr>
+<td><code>0.3</code></td>
+<td>Correção EU3: substituição da seção F3-C8 por tabela explícita de rastreabilidade Fase 2 → Fase 3, mapeando cada métrica ao seu método, ferramenta, critério de julgamento e saída bruta.</td>
+<td>23/06/2026</td>
+<td><a href="https://github.com/JuliaReis18">Júlia Massuda</a></td>
 </tr>
 </tbody>
 </table>
