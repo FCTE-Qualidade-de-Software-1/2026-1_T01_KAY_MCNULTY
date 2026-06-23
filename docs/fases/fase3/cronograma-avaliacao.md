@@ -20,9 +20,17 @@ O cronograma abaixo organiza as atividades em uma sequência coerente entre Fase
 
 ## 2. Consistência entre as Fases 2 e 3 (F3-C8)
 
-O método definido nesta fase é diretamente coerente com as métricas, níveis de pontuação e critérios de julgamento da Fase 2. A métrica **M1.1** depende de alertas observáveis em execução, por isso o uso de **OWASP ZAP** como método DAST é o mais adequado para identificar falhas como ausência de cabeçalhos HTTP e problemas de exposição externa. Já as métricas **M1.2**, **M2.1**, **M2.2** e **M2.3** dependem de severidade de issue, regra aplicada, complexidade cognitiva e dívida técnica calculadas sobre a base de código, o que torna o **SonarCloud** a fonte coerente para essas medições.
+A tabela abaixo demonstra a rastreabilidade direta entre cada métrica definida na Fase 2 e o método, ferramenta, critério de julgamento e saída bruta especificados nesta Fase 3:
 
-Além disso, a escolha de **GitHub Actions** para a varredura dinâmica e de um **script parametrizado** para extração da API do SonarCloud reforça a reprodutibilidade, a auditabilidade e a aderência direta às evidências que deverão ser registradas na Fase 4. Em vez de depender de observações manuais ou interpretação subjetiva, o plano privilegia mecanismos automatizados e saídas brutas versionáveis, o que sustenta a rastreabilidade entre a definição conceitual da Fase 2, a execução da Fase 4 e o julgamento final do produto avaliado.
+| Métrica (Fase 2) | Questão GQM | Método (Fase 3) | Ferramenta | Critério de Julgamento (Fase 2) | Saída bruta (Fase 4) |
+| --- | --- | --- | --- | --- | --- |
+| **M1.1** Densidade de alertas DAST (Médio/Alto) | Q1.1 | DAST via GitHub Actions (`workflow_dispatch`) | OWASP ZAP `action-full-scan@v0.12.0` | Excelente ≤ 0,00 · Bom 0,01–0,05 · Satisfatório 0,06–0,15 · **Insuficiente > 0,15** | `zap_report_fase1.html` |
+| **M1.2** BLOCKERs de segurança | Q1.2 | SAST via script `extrator_sonar.py` | SonarCloud API (`/api/issues/search`) | **Qualquer valor > 0 = Insuficiente** (tolerância zero) | `sonar_issues_fase1.json` |
+| **M2.1** Módulos com complexidade cognitiva > 15 | Q2.1 | SAST via script `extrator_sonar.py` | SonarCloud API | Excelente = 0 · Bom 1–2 · Satisfatório 3–5 · Insuficiente > 5 | `sonar_issues_fase1.json` |
+| **M2.2** Densidade de dívida técnica (min/LOC) | Q2.1 | SAST via script `extrator_sonar.py` (`effortTotal` / `ncloc`) | SonarCloud API | Excelente ≤ 0,10 · **Bom 0,11–0,25** · Satisfatório 0,26–0,50 · Insuficiente > 0,50 | `sonar_issues_fase1.json` |
+| **M2.3** Proporção de componentes Vue com falha de acessibilidade | Q2.2 | SAST via script `extrator_sonar.py` (regra `Web:S6853`) | SonarCloud API | Excelente = 0,00 · **Bom 0,01–0,10** · Satisfatório 0,11–0,25 · Insuficiente > 0,25 | `sonar_issues_fase1.json` |
+
+A escolha de **GitHub Actions** para o DAST e de um **script parametrizado** para o SAST foi diretamente motivada pelos critérios de julgamento da Fase 2, que exigem dados auditáveis e reproduzíveis: mecanismos automatizados eliminam variação humana na coleta e geram saídas brutas versionáveis, garantindo que os resultados da Fase 4 possam ser verificados por qualquer avaliador externo.
 
 ---
 
@@ -43,3 +51,4 @@ Além disso, a escolha de **GitHub Actions** para a varredura dinâmica e de um 
 | --- | --- | --- | --- |
 | `0.1` | Organização do cronograma da Fase 3 em página própria, com sequência lógica entre Fases 2, 3 e 4 e participação de toda a equipe. | 09/06/2026 | [Tiago Antunes](https://github.com/TiagoAntunesBalieiro) |
 | `0.2` | Consolidação da consistência metodológica e das referências bibliográficas nesta segunda página da Fase 3. | 09/06/2026 | [Tiago Antunes](https://github.com/TiagoAntunesBalieiro) |
+| `0.3` | Correção EU3: substituição da seção F3-C8 por tabela explícita de rastreabilidade Fase 2 → Fase 3, mapeando cada métrica ao seu método, ferramenta, critério de julgamento e saída bruta. | 23/06/2026 | [Júlia Massuda](https://github.com/JuliaReis18) |
