@@ -70,24 +70,24 @@ O diagrama abaixo ilustra o desdobramento lógico dos Objetivos em Questões ope
 
 ```mermaid
 graph TD
-    G1["G1: Avaliar e Melhorar a Segurança"]
-    G2["G2: Avaliar e Melhorar a Manutenibilidade"]
+    G1["G1: Avaliar e Melhorar<br/>a Segurança"]
+    G2["G2: Avaliar e Melhorar<br/>a Manutenibilidade"]
 
-    Q11["Q1.1: Resistência a ataques web e cabeçalhos HTTP?"]
-    Q12["Q1.2: Práticas de codificação segura e exposição de segredos?"]
-    Q21["Q2.1: Legibilidade e facilidade de modificação dos módulos?"]
-    Q22["Q2.2: Conformidade com diretrizes de acessibilidade web?"]
+    Q11["Q1.1: Resistência a ataques web<br/>e cabeçalhos HTTP?"]
+    Q12["Q1.2: Codificação segura<br/>e exposição de segredos?"]
+    Q21["Q2.1: Legibilidade e facilidade<br/>de modificação dos módulos?"]
+    Q22["Q2.2: Conformidade com<br/>diretrizes de acessibilidade web?"]
 
     G1 --> Q11
     G1 --> Q12
     G2 --> Q21
     G2 --> Q22
 
-    M11["M1.1: Quantidade de alertas ZAP de risco Médio ou Alto"]
-    M12["M1.2: Quantidade de issues BLOCKER de segurança (SonarCloud)"]
-    M21["M2.1: Quantidade de módulos com Complexidade Cognitiva acima de 15"]
-    M22["M2.2: Dívida Técnica total estimada em minutos (SonarCloud)"]
-    M23["M2.3: Quantidade de issues MAJOR de acessibilidade HTML (SonarCloud)"]
+    M11["M1.1: Alertas ZAP<br/>de risco Médio ou Alto"]
+    M12["M1.2: Issues BLOCKER<br/>de segurança (SonarCloud)"]
+    M21["M2.1: Módulos com<br/>Complexidade Cognitiva > 15"]
+    M22["M2.2: Dívida Técnica<br/>estimada em minutos"]
+    M23["M2.3: Issues MAJOR de<br/>acessibilidade HTML"]
 
     Q11 --> M11
     Q12 --> M12
