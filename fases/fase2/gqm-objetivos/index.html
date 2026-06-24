@@ -1510,40 +1510,39 @@
 <hr />
 <h2 id="3-hierarquia-gqm-c6">3. Hierarquia GQM (C6)</h2>
 <p>O diagrama abaixo ilustra o desdobramento lógico dos Objetivos em Questões operacionais e destas para as Métricas quantitativas coletadas na Fase 4. As definições completas de cada métrica, seus limiares e critérios de julgamento estão na seção <a href="../metricas-criterios/">Métricas e Critérios</a>.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>graph TD
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    G1[&quot;G1: Avaliar e Melhorar a Segurança&quot;]
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    G2[&quot;G2: Avaliar e Melhorar a Manutenibilidade&quot;]
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    Q11[&quot;Q1.1: Resistência a ataques web e cabeçalhos HTTP?&quot;]
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    Q12[&quot;Q1.2: Práticas de codificação segura e exposição de segredos?&quot;]
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    Q21[&quot;Q2.1: Legibilidade e facilidade de modificação dos módulos?&quot;]
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    Q22[&quot;Q2.2: Conformidade com diretrizes de acessibilidade web?&quot;]
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    G1 --&gt; Q11
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    G1 --&gt; Q12
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    G2 --&gt; Q21
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    G2 --&gt; Q22
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    M11[&quot;M1.1: Quantidade de alertas ZAP de risco Médio ou Alto&quot;]
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    M12[&quot;M1.2: Quantidade de issues BLOCKER de segurança (SonarCloud)&quot;]
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    M21[&quot;M2.1: Quantidade de módulos com Complexidade Cognitiva acima de 15&quot;]
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    M22[&quot;M2.2: Dívida Técnica total estimada em minutos (SonarCloud)&quot;]
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    M23[&quot;M2.3: Quantidade de issues MAJOR de acessibilidade HTML (SonarCloud)&quot;]
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    Q11 --&gt; M11
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    Q12 --&gt; M12
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    Q21 --&gt; M21
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>    Q21 --&gt; M22
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>    Q22 --&gt; M23
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>    classDef goal fill:#d4e157,stroke:#555,stroke-width:2px,color:#000;
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>    classDef question fill:#ffcc80,stroke:#555,stroke-width:1px,color:#000;
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>    classDef metric fill:#81d4fa,stroke:#555,stroke-width:1px,color:#000;
-</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>
-</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>    class G1,G2 goal;
-</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>    class Q11,Q12,Q21,Q22 question;
-</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>    class M11,M12,M21,M22,M23 metric;
-</span></code></pre></div>
+<pre class="mermaid"><code>graph TD
+    G1["G1: Avaliar e Melhorar a Segurança"]
+    G2["G2: Avaliar e Melhorar a Manutenibilidade"]
+
+    Q11["Q1.1: Resistência a ataques web e cabeçalhos HTTP?"]
+    Q12["Q1.2: Práticas de codificação segura e exposição de segredos?"]
+    Q21["Q2.1: Legibilidade e facilidade de modificação dos módulos?"]
+    Q22["Q2.2: Conformidade com diretrizes de acessibilidade web?"]
+
+    G1 --&gt; Q11
+    G1 --&gt; Q12
+    G2 --&gt; Q21
+    G2 --&gt; Q22
+
+    M11["M1.1: Quantidade de alertas ZAP de risco Médio ou Alto"]
+    M12["M1.2: Quantidade de issues BLOCKER de segurança (SonarCloud)"]
+    M21["M2.1: Quantidade de módulos com Complexidade Cognitiva acima de 15"]
+    M22["M2.2: Dívida Técnica total estimada em minutos (SonarCloud)"]
+    M23["M2.3: Quantidade de issues MAJOR de acessibilidade HTML (SonarCloud)"]
+
+    Q11 --&gt; M11
+    Q12 --&gt; M12
+    Q21 --&gt; M21
+    Q21 --&gt; M22
+    Q22 --&gt; M23
+
+    classDef goal fill:#d4e157,stroke:#555,stroke-width:2px,color:#000;
+    classDef question fill:#ffcc80,stroke:#555,stroke-width:1px,color:#000;
+    classDef metric fill:#81d4fa,stroke:#555,stroke-width:1px,color:#000;
+
+    class G1,G2 goal;
+    class Q11,Q12,Q21,Q22 question;
+    class M11,M12,M21,M22,M23 metric;</code></pre>
 <p><em>Figura 1: Hierarquia GQM do AcheiUnB — desdobramento dos Objetivos (amarelo) em Questões (laranja) e Métricas (azul).</em></p>
 <hr />
 <h2 id="4-rastreabilidade-e-coerencia-com-a-fase-1-c11">4. Rastreabilidade e Coerência com a Fase 1 (C11)</h2>
@@ -1645,6 +1644,8 @@
         <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../javascripts/mermaid.js"></script>
       
     
   </body>
