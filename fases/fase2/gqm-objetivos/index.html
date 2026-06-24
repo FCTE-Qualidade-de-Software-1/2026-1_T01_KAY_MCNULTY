@@ -1511,24 +1511,24 @@
 <h2 id="3-hierarquia-gqm-c6">3. Hierarquia GQM (C6)</h2>
 <p>O diagrama abaixo ilustra o desdobramento lógico dos Objetivos em Questões operacionais e destas para as Métricas quantitativas coletadas na Fase 4. As definições completas de cada métrica, seus limiares e critérios de julgamento estão na seção <a href="../metricas-criterios/">Métricas e Critérios</a>.</p>
 <pre class="mermaid"><code>graph TD
-    G1["G1: Avaliar e Melhorar a Segurança"]
-    G2["G2: Avaliar e Melhorar a Manutenibilidade"]
+    G1["G1: Avaliar e Melhorar&lt;br/&gt;a Segurança"]
+    G2["G2: Avaliar e Melhorar&lt;br/&gt;a Manutenibilidade"]
 
-    Q11["Q1.1: Resistência a ataques web e cabeçalhos HTTP?"]
-    Q12["Q1.2: Práticas de codificação segura e exposição de segredos?"]
-    Q21["Q2.1: Legibilidade e facilidade de modificação dos módulos?"]
-    Q22["Q2.2: Conformidade com diretrizes de acessibilidade web?"]
+    Q11["Q1.1: Resistência a ataques web&lt;br/&gt;e cabeçalhos HTTP?"]
+    Q12["Q1.2: Codificação segura&lt;br/&gt;e exposição de segredos?"]
+    Q21["Q2.1: Legibilidade e facilidade&lt;br/&gt;de modificação dos módulos?"]
+    Q22["Q2.2: Conformidade com&lt;br/&gt;diretrizes de acessibilidade web?"]
 
     G1 --&gt; Q11
     G1 --&gt; Q12
     G2 --&gt; Q21
     G2 --&gt; Q22
 
-    M11["M1.1: Quantidade de alertas ZAP de risco Médio ou Alto"]
-    M12["M1.2: Quantidade de issues BLOCKER de segurança (SonarCloud)"]
-    M21["M2.1: Quantidade de módulos com Complexidade Cognitiva acima de 15"]
-    M22["M2.2: Dívida Técnica total estimada em minutos (SonarCloud)"]
-    M23["M2.3: Quantidade de issues MAJOR de acessibilidade HTML (SonarCloud)"]
+    M11["M1.1: Alertas ZAP&lt;br/&gt;de risco Médio ou Alto"]
+    M12["M1.2: Issues BLOCKER&lt;br/&gt;de segurança (SonarCloud)"]
+    M21["M2.1: Módulos com&lt;br/&gt;Complexidade Cognitiva &gt; 15"]
+    M22["M2.2: Dívida Técnica&lt;br/&gt;estimada em minutos"]
+    M23["M2.3: Issues MAJOR de&lt;br/&gt;acessibilidade HTML"]
 
     Q11 --&gt; M11
     Q12 --&gt; M12
